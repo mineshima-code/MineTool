@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode53,
-            treeNode54,
-            treeNode55,
-            treeNode56,
-            treeNode57,
-            treeNode58,
-            treeNode59});
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode61,
-            treeNode62,
-            treeNode63});
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -82,6 +82,9 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelWork = new System.Windows.Forms.Panel();
+            this.lblPingTitle = new System.Windows.Forms.Label();
+            this.txtPingHost = new System.Windows.Forms.TextBox();
+            this.btnPingRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -90,6 +93,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelWork.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -383,6 +387,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelWork);
             this.splitContainer1.Panel2.Controls.Add(this.lblTitle);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(1178, 644);
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 8;
@@ -391,36 +396,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode53.Name = "ping";
-            treeNode53.Text = "Ping";
-            treeNode54.Name = "pingSweep";
-            treeNode54.Text = "Ping Sweep";
-            treeNode55.Name = "nslookup";
-            treeNode55.Text = "nslookup";
-            treeNode56.Name = "tracert";
-            treeNode56.Text = "tracert";
-            treeNode57.Name = "tcpPort";
-            treeNode57.Text = "TCP Port";
-            treeNode58.Name = "arp";
-            treeNode58.Text = "ARP";
-            treeNode59.Name = "netstat";
-            treeNode59.Text = "Netstat";
-            treeNode60.Name = "network";
-            treeNode60.Text = "Network";
-            treeNode61.Name = "eventViewer";
-            treeNode61.Text = "Event Viewer";
-            treeNode62.Name = "services";
-            treeNode62.Text = "Services";
-            treeNode63.Name = "computerManagement";
-            treeNode63.Text = "Computer Management";
-            treeNode64.Name = "windows";
-            treeNode64.Text = "Windows";
-            treeNode65.Name = "server";
-            treeNode65.Text = "Server";
+            treeNode14.Name = "ping";
+            treeNode14.Text = "Ping";
+            treeNode15.Name = "pingSweep";
+            treeNode15.Text = "Ping Sweep";
+            treeNode16.Name = "nslookup";
+            treeNode16.Text = "nslookup";
+            treeNode17.Name = "tracert";
+            treeNode17.Text = "tracert";
+            treeNode18.Name = "tcpPort";
+            treeNode18.Text = "TCP Port";
+            treeNode19.Name = "arp";
+            treeNode19.Text = "ARP";
+            treeNode20.Name = "netstat";
+            treeNode20.Text = "Netstat";
+            treeNode21.Name = "network";
+            treeNode21.Text = "Network";
+            treeNode22.Name = "eventViewer";
+            treeNode22.Text = "Event Viewer";
+            treeNode23.Name = "services";
+            treeNode23.Text = "Services";
+            treeNode24.Name = "computerManagement";
+            treeNode24.Text = "Computer Management";
+            treeNode25.Name = "windows";
+            treeNode25.Text = "Windows";
+            treeNode26.Name = "server";
+            treeNode26.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode60,
-            treeNode64,
-            treeNode65});
+            treeNode21,
+            treeNode25,
+            treeNode26});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -440,10 +445,40 @@
             this.panelWork.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelWork.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWork.Controls.Add(this.btnPingRun);
+            this.panelWork.Controls.Add(this.txtPingHost);
+            this.panelWork.Controls.Add(this.lblPingTitle);
             this.panelWork.Location = new System.Drawing.Point(4, 75);
             this.panelWork.Name = "panelWork";
             this.panelWork.Size = new System.Drawing.Size(947, 193);
             this.panelWork.TabIndex = 1;
+            // 
+            // lblPingTitle
+            // 
+            this.lblPingTitle.AutoSize = true;
+            this.lblPingTitle.Location = new System.Drawing.Point(21, 10);
+            this.lblPingTitle.Name = "lblPingTitle";
+            this.lblPingTitle.Size = new System.Drawing.Size(40, 18);
+            this.lblPingTitle.TabIndex = 0;
+            this.lblPingTitle.Text = "Ping";
+            // 
+            // txtPingHost
+            // 
+            this.txtPingHost.Location = new System.Drawing.Point(24, 68);
+            this.txtPingHost.Name = "txtPingHost";
+            this.txtPingHost.Size = new System.Drawing.Size(180, 25);
+            this.txtPingHost.TabIndex = 1;
+            this.txtPingHost.Text = "8.8.8.8";
+            // 
+            // btnPingRun
+            // 
+            this.btnPingRun.Location = new System.Drawing.Point(24, 103);
+            this.btnPingRun.Name = "btnPingRun";
+            this.btnPingRun.Size = new System.Drawing.Size(100, 30);
+            this.btnPingRun.TabIndex = 2;
+            this.btnPingRun.Text = "Ping";
+            this.btnPingRun.UseVisualStyleBackColor = true;
+            this.btnPingRun.Click += new System.EventHandler(this.btnPingRun_Click);
             // 
             // Form1
             // 
@@ -470,6 +505,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelWork.ResumeLayout(false);
+            this.panelWork.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -507,6 +544,9 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelWork;
+        private System.Windows.Forms.Label lblPingTitle;
+        private System.Windows.Forms.Button btnPingRun;
+        private System.Windows.Forms.TextBox txtPingHost;
     }
 }
 

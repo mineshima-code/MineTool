@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Diagnostics;
 
 namespace MineTool
 {
@@ -394,6 +395,41 @@ namespace MineTool
             lblTitle.Text = e.Node.Text;
 
             AddLog("選択: " + e.Node.Text);
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPingRun_Click(object sender, EventArgs e)
+        {
+            string host = txtPingHost.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("Ping先を入力してください。");
+                return;
+            }
+
+            AddLog("Ping開始 : " + host);
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "ping.exe";
+            psi.Arguments = host;
+            psi.RedirectStandardOutput = true;
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+
+            Process p = Process.Start(psi);
+
+            string result = p.StandardOutput.ReadToEnd();
+
+            p.WaitForExit();
+
+            AddLog(result);
+
+            AddLog("Ping終了");
         }
     }
 }
