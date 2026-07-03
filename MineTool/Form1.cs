@@ -11,7 +11,6 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Diagnostics;
 
 namespace MineTool
 {
@@ -402,6 +401,7 @@ namespace MineTool
 
         }
 
+        
         private void btnPingRun_Click(object sender, EventArgs e)
         {
             string host = txtPingHost.Text.Trim();
@@ -420,16 +420,24 @@ namespace MineTool
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
             psi.CreateNoWindow = true;
+            psi.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
 
-            Process p = Process.Start(psi);
+            Process p = new Process();
+            p.StartInfo = psi;
 
-            string result = p.StandardOutput.ReadToEnd();
+            p.OutputDataReceived += (s, ev) =>
+            {
+                if (ev.Data != null)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        AddLog(ev.Data);
+                    }));
+                }
+            };
 
-            p.WaitForExit();
-
-            AddLog(result);
-
-            AddLog("Ping終了");
+            p.Start();
+            p.BeginOutputReadLine();
         }
     }
 }
