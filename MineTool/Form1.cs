@@ -93,31 +93,51 @@ namespace MineTool
         }
         private void RunCommand(string fileName, string arguments)
         {
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = fileName;
-            psi.Arguments = arguments;
-            psi.UseShellExecute = false;
-            psi.RedirectStandardOutput = true;
-            psi.RedirectStandardError = true;
-            psi.CreateNoWindow = true;
-            psi.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
-
-            Process process = new Process();
-            process.StartInfo = psi;
-
-            process.OutputDataReceived += (s, ev) =>
+            try
             {
-                if (ev.Data != null)
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        textBox1.AppendText(ev.Data + "\r\n");
-                    }));
-                }
-            };
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = fileName;
+                psi.Arguments = arguments;
+                psi.UseShellExecute = false;
+                psi.RedirectStandardOutput = true;
+                psi.RedirectStandardError = true;
+                psi.CreateNoWindow = true;
+                psi.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
+                psi.StandardErrorEncoding = Encoding.GetEncoding("shift_jis");
 
-            process.Start();
-            process.BeginOutputReadLine();
+                Process process = new Process();
+                process.StartInfo = psi;
+
+                process.OutputDataReceived += (s, ev) =>
+                {
+                    if (ev.Data != null)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            AddLog(ev.Data);
+                        }));
+                    }
+                };
+
+                process.ErrorDataReceived += (s, ev) =>
+                {
+                    if (ev.Data != null)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            AddLog("ERROR: " + ev.Data);
+                        }));
+                    }
+                };
+
+                process.Start();
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+            }
+            catch (Exception ex)
+            {
+                AddLog("コマンド実行エラー: " + ex.Message);
+            }
         }
         private void txtHost_TextChanged(object sender, EventArgs e)
         {
@@ -403,6 +423,9 @@ namespace MineTool
                 case "Ping Sweep":
                     ShowPanel(panelPingSweep, "Ping Sweep");
                     break;
+                case "nslookup":
+                    ShowPanel(panelNslookup, "nslookup");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -417,6 +440,7 @@ namespace MineTool
             panelHome.Visible = false;
             panelPing.Visible = false;
             panelPingSweep.Visible = false;
+            panelNslookup.Visible = false;
         }
         private void ShowPanel(Panel panel, string title)
         {
@@ -536,6 +560,33 @@ namespace MineTool
         private void btnPingSweepStop_Click(object sender, EventArgs e)
         {
             stopPingSweep = true;
+        }
+
+        private void btnNslookupRun_Click(object sender, EventArgs e)
+        {
+            string host = txtNslookupHost.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("Host/IPを入力してください。");
+                return;
+            }
+
+            textBox1.Clear();
+
+            AddLog("nslookup開始 : " + host);
+
+            RunCommand("nslookup", host);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
