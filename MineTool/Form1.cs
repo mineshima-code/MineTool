@@ -470,5 +470,72 @@ namespace MineTool
             currentProcess.Kill();
             AddLog("Pingを停止しました。");
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnPingSweepRun_Click(object sender, EventArgs e)
+        {
+            string startIpText = txtSweepStartIp.Text.Trim();
+            string endIpText = txtSweepEndIp.Text.Trim();
+
+            if (!IPAddress.TryParse(startIpText, out IPAddress startIp) ||
+                !IPAddress.TryParse(endIpText, out IPAddress endIp))
+            {
+                AddLog("開始IPまたは終了IPが正しくありません。");
+                return;
+            }
+
+            textBox1.Clear();
+            stopPingSweep = false;
+
+            AddLog("Ping Sweep開始: " + startIpText + " ～ " + endIpText);
+
+            uint start = IpToUInt(startIp);
+            uint end = IpToUInt(endIp);
+
+            if (start > end)
+            {
+                AddLog("開始IPが終了IPより大きいです。");
+                return;
+            }
+
+            for (uint ip = start; ip <= end; ip++)
+            {
+                if (stopPingSweep)
+                {
+                    AddLog("Ping Sweepを停止しました。");
+                    break;
+                }
+
+                string target = UIntToIp(ip);
+
+                using (Ping ping = new Ping())
+                {
+                    try
+                    {
+                        PingReply reply = await ping.SendPingAsync(target, 500);
+
+                        if (reply.Status == IPStatus.Success)
+                        {
+                            AddLog("OK : " + target);
+                        }
+                    }
+                    catch
+                    {
+                        // 応答なしは表示しない
+                    }
+                }
+            }
+
+            AddLog("Ping Sweep完了");
+        }
+
+        private void btnPingSweepStop_Click(object sender, EventArgs e)
+        {
+            stopPingSweep = true;
+        }
     }
 }
