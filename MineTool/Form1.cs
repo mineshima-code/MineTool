@@ -192,6 +192,11 @@ namespace MineTool
             textBox1.ScrollBars = ScrollBars.Vertical;
             btnNslookupRun.Click -= btnNslookupRun_Click;
             btnNslookupRun.Click += btnNslookupRun_Click;
+            btnTracertRun.Click -= btnTracertRun_Click;
+            btnTracertRun.Click += btnTracertRun_Click;
+
+            btnTracertStop.Click -= btnTracertStop_Click;
+            btnTracertStop.Click += btnTracertStop_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -428,6 +433,9 @@ namespace MineTool
                 case "nslookup":
                     ShowPanel(panelNslookup, "nslookup");
                     break;
+                case "tracert":
+                    ShowPanel(paneltracert, "tracert");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -443,6 +451,7 @@ namespace MineTool
             panelPing.Visible = false;
             panelPingSweep.Visible = false;
             panelNslookup.Visible = false;
+            paneltracert.Visible = false;
         }
         private void ShowPanel(Panel panel, string title)
         {
@@ -589,6 +598,55 @@ namespace MineTool
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTracertRun_Click(object sender, EventArgs e)
+        {
+            string host = txtTracertHost.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("Host/IPを入力してください。");
+                return;
+            }
+
+            textBox1.Clear();
+
+            AddLog("tracert開始 : " + host);
+
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "tracert.exe";
+            psi.Arguments = host;
+            psi.UseShellExecute = false;
+            psi.RedirectStandardOutput = true;
+            psi.CreateNoWindow = true;
+            psi.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
+
+            currentProcess = new Process();
+            currentProcess.StartInfo = psi;
+
+            currentProcess.OutputDataReceived += (s, ev) =>
+            {
+                if (ev.Data != null)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        AddLog(ev.Data);
+                    }));
+                }
+            };
+
+            currentProcess.Start();
+            currentProcess.BeginOutputReadLine();
+        }
+
+        private void btnTracertStop_Click(object sender, EventArgs e)
+        {
+            if (currentProcess != null && !currentProcess.HasExited)
+            {
+                currentProcess.Kill();
+                AddLog("tracertを停止しました。");
+            }
         }
     }
 }
