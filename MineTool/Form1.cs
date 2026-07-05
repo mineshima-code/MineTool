@@ -170,6 +170,7 @@ namespace MineTool
             textBox1.Height = 250;
             textBox1.Multiline = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
+            ShowPanel(panelHome, "MineTool");
 
         }
 
@@ -391,19 +392,16 @@ namespace MineTool
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            panelPing.Visible = false;
-            panelPingSweep.Visible = false;
+            HideAllPanels();
 
             switch (e.Node.Text)
             {
                 case "Ping":
-                    lblTitle.Text = "Ping";
-                    panelPing.Visible = true;
+                    ShowPanel(panelPing, "Ping");
                     break;
 
                 case "Ping Sweep":
-                    lblTitle.Text = "Ping Sweep";
-                    panelPingSweep.Visible = true;
+                    ShowPanel(panelPingSweep, "Ping Sweep");
                     break;
             }
 
@@ -414,8 +412,20 @@ namespace MineTool
         {
 
         }
+        private void HideAllPanels()
+        {
+            panelHome.Visible = false;
+            panelPing.Visible = false;
+            panelPingSweep.Visible = false;
+        }
+        private void ShowPanel(Panel panel, string title)
+        {
+            HideAllPanels();
 
-        
+            panel.Visible = true;
+            lblTitle.Text = title;
+        }
+
         private void btnPingRun_Click(object sender, EventArgs e)
         {
             string host = txtPingHost.Text.Trim();
@@ -430,7 +440,7 @@ namespace MineTool
 
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "ping.exe";
-            psi.Arguments = host;
+            psi.Arguments = chkPingContinuous.Checked ? "-t " + host : host;
             psi.RedirectStandardOutput = true;
             psi.UseShellExecute = false;
             psi.CreateNoWindow = true;
@@ -438,6 +448,7 @@ namespace MineTool
 
             Process p = new Process();
             p.StartInfo = psi;
+            currentProcess = p;
 
             p.OutputDataReceived += (s, ev) =>
             {
@@ -452,6 +463,12 @@ namespace MineTool
 
             p.Start();
             p.BeginOutputReadLine();
+        }
+
+        private void btnPingStop_Click(object sender, EventArgs e)
+        {
+            currentProcess.Kill();
+            AddLog("Pingを停止しました。");
         }
     }
 }

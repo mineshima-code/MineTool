@@ -87,6 +87,9 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelPing = new System.Windows.Forms.Panel();
             this.panelPingSweep = new System.Windows.Forms.Panel();
+            this.panelHome = new System.Windows.Forms.Panel();
+            this.chkPingContinuous = new System.Windows.Forms.CheckBox();
+            this.btnPingStop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,6 +100,7 @@
             this.splitContainer1.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.panelPing.SuspendLayout();
+            this.panelPingSweep.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -446,7 +450,7 @@
             // 
             // btnPingRun
             // 
-            this.btnPingRun.Location = new System.Drawing.Point(17, 70);
+            this.btnPingRun.Location = new System.Drawing.Point(17, 100);
             this.btnPingRun.Name = "btnPingRun";
             this.btnPingRun.Size = new System.Drawing.Size(100, 30);
             this.btnPingRun.TabIndex = 2;
@@ -484,6 +488,8 @@
             // panelPing
             // 
             this.panelPing.Controls.Add(this.panelPingSweep);
+            this.panelPing.Controls.Add(this.btnPingStop);
+            this.panelPing.Controls.Add(this.chkPingContinuous);
             this.panelPing.Controls.Add(this.lblPingTitle);
             this.panelPing.Controls.Add(this.btnPingRun);
             this.panelPing.Controls.Add(this.txtPingHost);
@@ -494,10 +500,38 @@
             // 
             // panelPingSweep
             // 
+            this.panelPingSweep.Controls.Add(this.panelHome);
             this.panelPingSweep.Location = new System.Drawing.Point(3, 3);
             this.panelPingSweep.Name = "panelPingSweep";
             this.panelPingSweep.Size = new System.Drawing.Size(939, 185);
             this.panelPingSweep.TabIndex = 3;
+            // 
+            // panelHome
+            // 
+            this.panelHome.Location = new System.Drawing.Point(275, 3);
+            this.panelHome.Name = "panelHome";
+            this.panelHome.Size = new System.Drawing.Size(939, 185);
+            this.panelHome.TabIndex = 4;
+            // 
+            // chkPingContinuous
+            // 
+            this.chkPingContinuous.AutoSize = true;
+            this.chkPingContinuous.Location = new System.Drawing.Point(17, 72);
+            this.chkPingContinuous.Name = "chkPingContinuous";
+            this.chkPingContinuous.Size = new System.Drawing.Size(131, 22);
+            this.chkPingContinuous.TabIndex = 4;
+            this.chkPingContinuous.Text = "継続実行(-t)";
+            this.chkPingContinuous.UseVisualStyleBackColor = true;
+            // 
+            // btnPingStop
+            // 
+            this.btnPingStop.Location = new System.Drawing.Point(123, 100);
+            this.btnPingStop.Name = "btnPingStop";
+            this.btnPingStop.Size = new System.Drawing.Size(100, 30);
+            this.btnPingStop.TabIndex = 5;
+            this.btnPingStop.Text = "停止";
+            this.btnPingStop.UseVisualStyleBackColor = true;
+            this.btnPingStop.Click += new System.EventHandler(this.btnPingStop_Click);
             // 
             // Form1
             // 
@@ -527,6 +561,7 @@
             this.panelWork.ResumeLayout(false);
             this.panelPing.ResumeLayout(false);
             this.panelPing.PerformLayout();
+            this.panelPingSweep.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -569,6 +604,9 @@
         private System.Windows.Forms.TextBox txtPingHost;
         private System.Windows.Forms.Panel panelPing;
         private System.Windows.Forms.Panel panelPingSweep;
+        private System.Windows.Forms.Panel panelHome;
+        private System.Windows.Forms.CheckBox chkPingContinuous;
+        private System.Windows.Forms.Button btnPingStop;
     }
 }
 
