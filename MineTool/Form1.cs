@@ -190,6 +190,8 @@ namespace MineTool
             textBox1.Height = 250;
             textBox1.Multiline = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
+            btnNslookupRun.Click -= btnNslookupRun_Click;
+            btnNslookupRun.Click += btnNslookupRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -576,7 +578,7 @@ namespace MineTool
 
             AddLog("nslookup開始 : " + host);
 
-            RunCommand("nslookup", host);
+            RunCommand("nslookup.exe", host);
         }
 
         private void label8_Click(object sender, EventArgs e)

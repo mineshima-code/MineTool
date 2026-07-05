@@ -80,9 +80,7 @@
             this.btnEventViewer = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panelHome = new System.Windows.Forms.Panel();
             this.panelWork = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.panelPing = new System.Windows.Forms.Panel();
             this.btnPingStop = new System.Windows.Forms.Button();
             this.chkPingContinuous = new System.Windows.Forms.CheckBox();
@@ -102,6 +100,9 @@
             this.txtNslookupHost = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panelHome = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.paneltracert = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -405,6 +406,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.paneltracert);
             this.splitContainer1.Panel2.Controls.Add(this.panelWork);
             this.splitContainer1.Panel2.Controls.Add(this.lblTitle);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
@@ -450,13 +452,6 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // panelHome
-            // 
-            this.panelHome.Location = new System.Drawing.Point(3, 3);
-            this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(939, 185);
-            this.panelHome.TabIndex = 4;
-            // 
             // panelWork
             // 
             this.panelWork.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -470,16 +465,6 @@
             this.panelWork.Name = "panelWork";
             this.panelWork.Size = new System.Drawing.Size(947, 193);
             this.panelWork.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblTitle.Location = new System.Drawing.Point(23, 31);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(242, 33);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "ここに画面タイトル";
             // 
             // panelPing
             // 
@@ -659,6 +644,30 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "nslookup";
             // 
+            // panelHome
+            // 
+            this.panelHome.Location = new System.Drawing.Point(3, 3);
+            this.panelHome.Name = "panelHome";
+            this.panelHome.Size = new System.Drawing.Size(939, 185);
+            this.panelHome.TabIndex = 4;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblTitle.Location = new System.Drawing.Point(23, 31);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(242, 33);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "ここに画面タイトル";
+            // 
+            // paneltracert
+            // 
+            this.paneltracert.Location = new System.Drawing.Point(389, 369);
+            this.paneltracert.Name = "paneltracert";
+            this.paneltracert.Size = new System.Drawing.Size(200, 100);
+            this.paneltracert.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -748,6 +757,7 @@
         private System.Windows.Forms.TextBox txtNslookupHost;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel paneltracert;
     }
 }
 
