@@ -391,9 +391,23 @@ namespace MineTool
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            lblTitle.Text = e.Node.Text;
+            panelPing.Visible = false;
+            panelPingSweep.Visible = false;
 
-            AddLog("選択: " + e.Node.Text);
+            switch (e.Node.Text)
+            {
+                case "Ping":
+                    lblTitle.Text = "Ping";
+                    panelPing.Visible = true;
+                    break;
+
+                case "Ping Sweep":
+                    lblTitle.Text = "Ping Sweep";
+                    panelPingSweep.Visible = true;
+                    break;
+            }
+
+            AddLog("選択：" + e.Node.Text);
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
