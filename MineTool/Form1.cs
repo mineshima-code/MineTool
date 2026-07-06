@@ -220,6 +220,8 @@ namespace MineTool
             btnDiskManagementRun.Click += btnDiskManagementRun_Click;
             btnLocalUsersRun.Click -= btnLocalUsersRun_Click;
             btnLocalUsersRun.Click += btnLocalUsersRun_Click;
+            btnRemoteDesktopRun.Click -= btnRemoteDesktopRun_Click;
+            btnRemoteDesktopRun.Click += btnRemoteDesktopRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -486,6 +488,9 @@ namespace MineTool
                 case "Local Users":
                     ShowPanel(panelLocalUsers, "Local Users");
                     break;
+                case "Remote Desktop":
+                    ShowPanel(panelRemoteDesktop, "Remote Desktop");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -511,6 +516,7 @@ namespace MineTool
             panelDeviceManager.Visible = false;
             panelDiskManagement.Visible = false;
             panelLocalUsers.Visible = false;
+            panelRemoteDesktop.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -892,6 +898,21 @@ namespace MineTool
             Process.Start("lusrmgr.msc");
 
             AddLog("ローカルユーザーとグループを起動しました。");
+        }
+
+        private void btnRemoteDesktopRun_Click(object sender, EventArgs e)
+        {
+            string host = txtRemoteDesktopHost.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("接続先を入力してください。");
+                return;
+            }
+
+            Process.Start("mstsc.exe", "/v:" + host);
+
+            AddLog("リモートデスクトップ接続を起動しました: " + host);
         }
     }
 }

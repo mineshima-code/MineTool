@@ -28,35 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode33,
-            treeNode34,
-            treeNode35,
-            treeNode36,
-            treeNode37,
-            treeNode38,
-            treeNode39});
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Device Manager");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Disk Management");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Local Users");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode41,
-            treeNode42,
-            treeNode43,
-            treeNode44,
-            treeNode45,
-            treeNode46});
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode55,
+            treeNode56,
+            treeNode57,
+            treeNode58,
+            treeNode59,
+            treeNode60,
+            treeNode61});
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Device Manager");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Disk Management");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Local Users");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode63,
+            treeNode64,
+            treeNode65,
+            treeNode66,
+            treeNode67,
+            treeNode68});
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Remote Desktop");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Remote", new System.Windows.Forms.TreeNode[] {
+            treeNode70});
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -81,9 +84,6 @@
             this.txtEndIp = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnComputerManagement = new System.Windows.Forms.Button();
-            this.btnServices = new System.Windows.Forms.Button();
-            this.btnEventViewer = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panelDeviceManager = new System.Windows.Forms.Panel();
@@ -153,6 +153,11 @@
             this.panelLocalUsers = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.btnLocalUsersRun = new System.Windows.Forms.Button();
+            this.panelRemoteDesktop = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtRemoteDesktopHost = new System.Windows.Forms.TextBox();
+            this.btnRemoteDesktopRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -175,6 +180,7 @@
             this.panelNslookup.SuspendLayout();
             this.panelDiskManagement.SuspendLayout();
             this.panelLocalUsers.SuspendLayout();
+            this.panelRemoteDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -424,36 +430,6 @@
             this.tabPage3.Text = "サーバ";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnComputerManagement
-            // 
-            this.btnComputerManagement.Location = new System.Drawing.Point(26, 515);
-            this.btnComputerManagement.Name = "btnComputerManagement";
-            this.btnComputerManagement.Size = new System.Drawing.Size(200, 35);
-            this.btnComputerManagement.TabIndex = 2;
-            this.btnComputerManagement.Text = "コンピューターの管理";
-            this.btnComputerManagement.UseVisualStyleBackColor = true;
-            this.btnComputerManagement.Click += new System.EventHandler(this.btnComputerManagement_Click);
-            // 
-            // btnServices
-            // 
-            this.btnServices.Location = new System.Drawing.Point(30, 474);
-            this.btnServices.Name = "btnServices";
-            this.btnServices.Size = new System.Drawing.Size(138, 35);
-            this.btnServices.TabIndex = 1;
-            this.btnServices.Text = "サービス";
-            this.btnServices.UseVisualStyleBackColor = true;
-            this.btnServices.Click += new System.EventHandler(this.btnServices_Click);
-            // 
-            // btnEventViewer
-            // 
-            this.btnEventViewer.Location = new System.Drawing.Point(26, 433);
-            this.btnEventViewer.Name = "btnEventViewer";
-            this.btnEventViewer.Size = new System.Drawing.Size(138, 35);
-            this.btnEventViewer.TabIndex = 0;
-            this.btnEventViewer.Text = "イベントビューア";
-            this.btnEventViewer.UseVisualStyleBackColor = true;
-            this.btnEventViewer.Click += new System.EventHandler(this.btnEventViewer_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -466,6 +442,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelRemoteDesktop);
             this.splitContainer1.Panel2.Controls.Add(this.panelLocalUsers);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiskManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelDeviceManager);
@@ -487,42 +464,47 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode33.Name = "ping";
-            treeNode33.Text = "Ping";
-            treeNode34.Name = "pingSweep";
-            treeNode34.Text = "Ping Sweep";
-            treeNode35.Name = "nslookup";
-            treeNode35.Text = "nslookup";
-            treeNode36.Name = "tracert";
-            treeNode36.Text = "tracert";
-            treeNode37.Name = "tcpPort";
-            treeNode37.Text = "TCP Port";
-            treeNode38.Name = "arp";
-            treeNode38.Text = "ARP";
-            treeNode39.Name = "netstat";
-            treeNode39.Text = "Netstat";
-            treeNode40.Name = "network";
-            treeNode40.Text = "Network";
-            treeNode41.Name = "eventViewer";
-            treeNode41.Text = "Event Viewer";
-            treeNode42.Name = "services";
-            treeNode42.Text = "Services";
-            treeNode43.Name = "computerManagement";
-            treeNode43.Text = "Computer Management";
-            treeNode44.Name = "DeviceManager";
-            treeNode44.Text = "Device Manager";
-            treeNode45.Name = "DiskManagement";
-            treeNode45.Text = "Disk Management";
-            treeNode46.Name = "LocalUsers";
-            treeNode46.Text = "Local Users";
-            treeNode47.Name = "windows";
-            treeNode47.Text = "Windows";
-            treeNode48.Name = "server";
-            treeNode48.Text = "Server";
+            treeNode55.Name = "ping";
+            treeNode55.Text = "Ping";
+            treeNode56.Name = "pingSweep";
+            treeNode56.Text = "Ping Sweep";
+            treeNode57.Name = "nslookup";
+            treeNode57.Text = "nslookup";
+            treeNode58.Name = "tracert";
+            treeNode58.Text = "tracert";
+            treeNode59.Name = "tcpPort";
+            treeNode59.Text = "TCP Port";
+            treeNode60.Name = "arp";
+            treeNode60.Text = "ARP";
+            treeNode61.Name = "netstat";
+            treeNode61.Text = "Netstat";
+            treeNode62.Name = "network";
+            treeNode62.Text = "Network";
+            treeNode63.Name = "eventViewer";
+            treeNode63.Text = "Event Viewer";
+            treeNode64.Name = "services";
+            treeNode64.Text = "Services";
+            treeNode65.Name = "computerManagement";
+            treeNode65.Text = "Computer Management";
+            treeNode66.Name = "DeviceManager";
+            treeNode66.Text = "Device Manager";
+            treeNode67.Name = "DiskManagement";
+            treeNode67.Text = "Disk Management";
+            treeNode68.Name = "LocalUsers";
+            treeNode68.Text = "Local Users";
+            treeNode69.Name = "windows";
+            treeNode69.Text = "Windows";
+            treeNode70.Name = "RemoteDesktop";
+            treeNode70.Text = "Remote Desktop";
+            treeNode71.Name = "Remote";
+            treeNode71.Text = "Remote";
+            treeNode72.Name = "server";
+            treeNode72.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode40,
-            treeNode47,
-            treeNode48});
+            treeNode62,
+            treeNode69,
+            treeNode71,
+            treeNode72});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1169,15 +1151,59 @@
             this.btnLocalUsersRun.UseVisualStyleBackColor = true;
             this.btnLocalUsersRun.Click += new System.EventHandler(this.btnLocalUsersRun_Click);
             // 
+            // panelRemoteDesktop
+            // 
+            this.panelRemoteDesktop.Controls.Add(this.btnRemoteDesktopRun);
+            this.panelRemoteDesktop.Controls.Add(this.txtRemoteDesktopHost);
+            this.panelRemoteDesktop.Controls.Add(this.label25);
+            this.panelRemoteDesktop.Controls.Add(this.label24);
+            this.panelRemoteDesktop.Location = new System.Drawing.Point(11, 80);
+            this.panelRemoteDesktop.Name = "panelRemoteDesktop";
+            this.panelRemoteDesktop.Size = new System.Drawing.Size(935, 184);
+            this.panelRemoteDesktop.TabIndex = 15;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 10);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(131, 18);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Remote Desktop";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(14, 48);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 18);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "接続先";
+            // 
+            // txtRemoteDesktopHost
+            // 
+            this.txtRemoteDesktopHost.Location = new System.Drawing.Point(15, 75);
+            this.txtRemoteDesktopHost.Name = "txtRemoteDesktopHost";
+            this.txtRemoteDesktopHost.Size = new System.Drawing.Size(180, 25);
+            this.txtRemoteDesktopHost.TabIndex = 2;
+            this.txtRemoteDesktopHost.Text = "192.168.1.1";
+            // 
+            // btnRemoteDesktopRun
+            // 
+            this.btnRemoteDesktopRun.Location = new System.Drawing.Point(15, 117);
+            this.btnRemoteDesktopRun.Name = "btnRemoteDesktopRun";
+            this.btnRemoteDesktopRun.Size = new System.Drawing.Size(150, 30);
+            this.btnRemoteDesktopRun.TabIndex = 3;
+            this.btnRemoteDesktopRun.Text = "RDP接続";
+            this.btnRemoteDesktopRun.UseVisualStyleBackColor = true;
+            this.btnRemoteDesktopRun.Click += new System.EventHandler(this.btnRemoteDesktopRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1178, 644);
-            this.Controls.Add(this.btnComputerManagement);
-            this.Controls.Add(this.btnServices);
-            this.Controls.Add(this.btnEventViewer);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
@@ -1221,6 +1247,8 @@
             this.panelDiskManagement.PerformLayout();
             this.panelLocalUsers.ResumeLayout(false);
             this.panelLocalUsers.PerformLayout();
+            this.panelRemoteDesktop.ResumeLayout(false);
+            this.panelRemoteDesktop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,9 +1266,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btnEventViewer;
-        private System.Windows.Forms.Button btnComputerManagement;
-        private System.Windows.Forms.Button btnServices;
         private System.Windows.Forms.Button btnNslookup;
         private System.Windows.Forms.Button btnPortcktcp;
         private System.Windows.Forms.Button btnTracert;
@@ -1323,6 +1348,11 @@
         private System.Windows.Forms.Panel panelLocalUsers;
         private System.Windows.Forms.Button btnLocalUsersRun;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panelRemoteDesktop;
+        private System.Windows.Forms.Button btnRemoteDesktopRun;
+        private System.Windows.Forms.TextBox txtRemoteDesktopHost;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
     }
 }
 
