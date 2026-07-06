@@ -150,6 +150,9 @@
             this.panelDiskManagement = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.btnDiskManagementRun = new System.Windows.Forms.Button();
+            this.panelLocalUsers = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnLocalUsersRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -171,6 +174,7 @@
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
             this.panelDiskManagement.SuspendLayout();
+            this.panelLocalUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -462,6 +466,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelLocalUsers);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiskManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelDeviceManager);
             this.splitContainer1.Panel2.Controls.Add(this.panelComputerManagement);
@@ -1136,6 +1141,34 @@
             this.btnDiskManagementRun.UseVisualStyleBackColor = true;
             this.btnDiskManagementRun.Click += new System.EventHandler(this.btnDiskManagementRun_Click);
             // 
+            // panelLocalUsers
+            // 
+            this.panelLocalUsers.Controls.Add(this.btnLocalUsersRun);
+            this.panelLocalUsers.Controls.Add(this.label23);
+            this.panelLocalUsers.Location = new System.Drawing.Point(10, 82);
+            this.panelLocalUsers.Name = "panelLocalUsers";
+            this.panelLocalUsers.Size = new System.Drawing.Size(935, 184);
+            this.panelLocalUsers.TabIndex = 14;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(9, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 18);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Local Users";
+            // 
+            // btnLocalUsersRun
+            // 
+            this.btnLocalUsersRun.Location = new System.Drawing.Point(16, 39);
+            this.btnLocalUsersRun.Name = "btnLocalUsersRun";
+            this.btnLocalUsersRun.Size = new System.Drawing.Size(300, 30);
+            this.btnLocalUsersRun.TabIndex = 1;
+            this.btnLocalUsersRun.Text = "ローカルユーザーとグループを開く";
+            this.btnLocalUsersRun.UseVisualStyleBackColor = true;
+            this.btnLocalUsersRun.Click += new System.EventHandler(this.btnLocalUsersRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1186,6 +1219,8 @@
             this.panelNslookup.PerformLayout();
             this.panelDiskManagement.ResumeLayout(false);
             this.panelDiskManagement.PerformLayout();
+            this.panelLocalUsers.ResumeLayout(false);
+            this.panelLocalUsers.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1285,6 +1320,9 @@
         private System.Windows.Forms.Panel panelDiskManagement;
         private System.Windows.Forms.Button btnDiskManagementRun;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panelLocalUsers;
+        private System.Windows.Forms.Button btnLocalUsersRun;
+        private System.Windows.Forms.Label label23;
     }
 }
 

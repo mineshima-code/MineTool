@@ -218,6 +218,8 @@ namespace MineTool
             btnDeviceManagerRun.Click += btnDeviceManagerRun_Click;
             btnDiskManagementRun.Click -= btnDiskManagementRun_Click;
             btnDiskManagementRun.Click += btnDiskManagementRun_Click;
+            btnLocalUsersRun.Click -= btnLocalUsersRun_Click;
+            btnLocalUsersRun.Click += btnLocalUsersRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -481,6 +483,9 @@ namespace MineTool
                 case "Disk Management":
                     ShowPanel(panelDiskManagement, "Disk Management");
                     break;
+                case "Local Users":
+                    ShowPanel(panelLocalUsers, "Local Users");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -505,6 +510,7 @@ namespace MineTool
             panelComputerManagement.Visible = false;
             panelDeviceManager.Visible = false;
             panelDiskManagement.Visible = false;
+            panelLocalUsers.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -879,6 +885,13 @@ namespace MineTool
             Process.Start("diskmgmt.msc");
 
             AddLog("ディスクの管理を起動しました。");
+        }
+
+        private void btnLocalUsersRun_Click(object sender, EventArgs e)
+        {
+            Process.Start("lusrmgr.msc");
+
+            AddLog("ローカルユーザーとグループを起動しました。");
         }
     }
 }
