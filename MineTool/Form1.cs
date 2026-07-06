@@ -197,6 +197,8 @@ namespace MineTool
 
             btnTracertStop.Click -= btnTracertStop_Click;
             btnTracertStop.Click += btnTracertStop_Click;
+            btnTcpPortRun.Click -= btnTcpPortRun_Click;
+            btnTcpPortRun.Click += btnTcpPortRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -436,6 +438,9 @@ namespace MineTool
                 case "tracert":
                     ShowPanel(paneltracert, "tracert");
                     break;
+                case "TCP Port":
+                    ShowPanel(panelTcpPort, "TCP Port");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -452,6 +457,7 @@ namespace MineTool
             panelPingSweep.Visible = false;
             panelNslookup.Visible = false;
             paneltracert.Visible = false;
+            panelTcpPort.Visible = false;
         }
         private void ShowPanel(Panel panel, string title)
         {
@@ -646,6 +652,51 @@ namespace MineTool
             {
                 currentProcess.Kill();
                 AddLog("tracertを停止しました。");
+            }
+        }
+
+        private async void btnTcpPortRun_Click(object sender, EventArgs e)
+        {
+            string host = txtTcpHost.Text.Trim();
+            string portText = txtTcpPort.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("接続先を入力してください。");
+                return;
+            }
+
+            textBox1.Clear();
+
+            if (portText == "")
+            {
+                AddLog("よく使うTCPポート確認開始: " + host);
+
+                int[] ports =
+                {
+            21, 22, 23, 25, 53, 80, 110,
+            135, 139, 143, 389, 443, 445,
+            1433, 3306, 3389, 5432, 5900, 8080
+        };
+
+                foreach (int p in ports)
+                {
+                    await CheckTcpPort(host, p);
+                }
+
+                AddLog("よく使うTCPポート確認完了");
+            }
+            else
+            {
+                if (!int.TryParse(portText, out int port))
+                {
+                    AddLog("ポート番号を正しく入力してください。");
+                    return;
+                }
+
+                AddLog($"TCPポート確認開始: {host}:{port}");
+                await CheckTcpPort(host, port);
+                AddLog("TCPポート確認完了");
             }
         }
     }

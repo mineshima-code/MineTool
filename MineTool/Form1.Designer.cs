@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode105,
-            treeNode106,
-            treeNode107,
-            treeNode108,
-            treeNode109,
-            treeNode110,
-            treeNode111});
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode113,
-            treeNode114,
-            treeNode115});
-            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode40,
+            treeNode41,
+            treeNode42,
+            treeNode43,
+            treeNode44,
+            treeNode45,
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode48,
+            treeNode49,
+            treeNode50});
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -108,6 +108,13 @@
             this.txtTracertHost = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.panelTcpPort = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTcpHost = new System.Windows.Forms.TextBox();
+            this.txtTcpPort = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnTcpPortRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,6 +128,7 @@
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
             this.paneltracert.SuspendLayout();
+            this.panelTcpPort.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -412,6 +420,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelTcpPort);
             this.splitContainer1.Panel2.Controls.Add(this.paneltracert);
             this.splitContainer1.Panel2.Controls.Add(this.panelWork);
             this.splitContainer1.Panel2.Controls.Add(this.lblTitle);
@@ -424,36 +433,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode105.Name = "ping";
-            treeNode105.Text = "Ping";
-            treeNode106.Name = "pingSweep";
-            treeNode106.Text = "Ping Sweep";
-            treeNode107.Name = "nslookup";
-            treeNode107.Text = "nslookup";
-            treeNode108.Name = "tracert";
-            treeNode108.Text = "tracert";
-            treeNode109.Name = "tcpPort";
-            treeNode109.Text = "TCP Port";
-            treeNode110.Name = "arp";
-            treeNode110.Text = "ARP";
-            treeNode111.Name = "netstat";
-            treeNode111.Text = "Netstat";
-            treeNode112.Name = "network";
-            treeNode112.Text = "Network";
-            treeNode113.Name = "eventViewer";
-            treeNode113.Text = "Event Viewer";
-            treeNode114.Name = "services";
-            treeNode114.Text = "Services";
-            treeNode115.Name = "computerManagement";
-            treeNode115.Text = "Computer Management";
-            treeNode116.Name = "windows";
-            treeNode116.Text = "Windows";
-            treeNode117.Name = "server";
-            treeNode117.Text = "Server";
+            treeNode40.Name = "ping";
+            treeNode40.Text = "Ping";
+            treeNode41.Name = "pingSweep";
+            treeNode41.Text = "Ping Sweep";
+            treeNode42.Name = "nslookup";
+            treeNode42.Text = "nslookup";
+            treeNode43.Name = "tracert";
+            treeNode43.Text = "tracert";
+            treeNode44.Name = "tcpPort";
+            treeNode44.Text = "TCP Port";
+            treeNode45.Name = "arp";
+            treeNode45.Text = "ARP";
+            treeNode46.Name = "netstat";
+            treeNode46.Text = "Netstat";
+            treeNode47.Name = "network";
+            treeNode47.Text = "Network";
+            treeNode48.Name = "eventViewer";
+            treeNode48.Text = "Event Viewer";
+            treeNode49.Name = "services";
+            treeNode49.Text = "Services";
+            treeNode50.Name = "computerManagement";
+            treeNode50.Text = "Computer Management";
+            treeNode51.Name = "windows";
+            treeNode51.Text = "Windows";
+            treeNode52.Name = "server";
+            treeNode52.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode112,
-            treeNode116,
-            treeNode117});
+            treeNode47,
+            treeNode51,
+            treeNode52});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -723,6 +732,71 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "tracert";
             // 
+            // panelTcpPort
+            // 
+            this.panelTcpPort.Controls.Add(this.btnTcpPortRun);
+            this.panelTcpPort.Controls.Add(this.label14);
+            this.panelTcpPort.Controls.Add(this.txtTcpPort);
+            this.panelTcpPort.Controls.Add(this.txtTcpHost);
+            this.panelTcpPort.Controls.Add(this.label13);
+            this.panelTcpPort.Controls.Add(this.label12);
+            this.panelTcpPort.Location = new System.Drawing.Point(7, 80);
+            this.panelTcpPort.Name = "panelTcpPort";
+            this.panelTcpPort.Size = new System.Drawing.Size(940, 182);
+            this.panelTcpPort.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "TCP Port";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 18);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Host/IP";
+            // 
+            // txtTcpHost
+            // 
+            this.txtTcpHost.Location = new System.Drawing.Point(13, 54);
+            this.txtTcpHost.Name = "txtTcpHost";
+            this.txtTcpHost.Size = new System.Drawing.Size(180, 25);
+            this.txtTcpHost.TabIndex = 2;
+            this.txtTcpHost.Text = "8.8.8.8";
+            // 
+            // txtTcpPort
+            // 
+            this.txtTcpPort.Location = new System.Drawing.Point(13, 117);
+            this.txtTcpPort.Name = "txtTcpPort";
+            this.txtTcpPort.Size = new System.Drawing.Size(180, 25);
+            this.txtTcpPort.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 95);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(200, 18);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Port（空欄なら主要ポート）";
+            // 
+            // btnTcpPortRun
+            // 
+            this.btnTcpPortRun.Location = new System.Drawing.Point(13, 147);
+            this.btnTcpPortRun.Name = "btnTcpPortRun";
+            this.btnTcpPortRun.Size = new System.Drawing.Size(100, 30);
+            this.btnTcpPortRun.TabIndex = 5;
+            this.btnTcpPortRun.Text = "Scan";
+            this.btnTcpPortRun.UseVisualStyleBackColor = true;
+            this.btnTcpPortRun.Click += new System.EventHandler(this.btnTcpPortRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -757,6 +831,8 @@
             this.panelNslookup.PerformLayout();
             this.paneltracert.ResumeLayout(false);
             this.paneltracert.PerformLayout();
+            this.panelTcpPort.ResumeLayout(false);
+            this.panelTcpPort.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -820,6 +896,13 @@
         private System.Windows.Forms.TextBox txtTracertHost;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panelTcpPort;
+        private System.Windows.Forms.TextBox txtTcpHost;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnTcpPortRun;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtTcpPort;
     }
 }
 
