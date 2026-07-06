@@ -212,6 +212,8 @@ namespace MineTool
             btnEventViewerSecurity.Click += btnEventViewerSecurity_Click;
             btnServicesRun.Click -= btnServicesRun_Click;
             btnServicesRun.Click += btnServicesRun_Click;
+            btnComputerManagementRun.Click -= btnComputerManagementRun_Click;
+            btnComputerManagementRun.Click += btnComputerManagementRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -466,6 +468,9 @@ namespace MineTool
                 case "Services":
                     ShowPanel(panelServices, "Services");
                     break;
+                case "Computer Management":
+                    ShowPanel(panelComputerManagement, "Computer Management");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -487,6 +492,7 @@ namespace MineTool
             panelNetstat.Visible = false;
             panelEventViewer.Visible = false;
             panelServices.Visible = false;
+            panelComputerManagement.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -841,6 +847,12 @@ namespace MineTool
         {
             Process.Start("services.msc");
             AddLog("サービスを起動しました。");
+        }
+
+        private void btnComputerManagementRun_Click(object sender, EventArgs e)
+        {
+            Process.Start("compmgmt.msc");
+            AddLog("コンピューターの管理を起動しました。");
         }
     }
 }

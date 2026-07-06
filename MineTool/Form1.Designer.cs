@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30,
-            treeNode31,
-            treeNode32,
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode35,
-            treeNode36,
-            treeNode37});
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode40,
+            treeNode41,
+            treeNode42,
+            treeNode43,
+            treeNode44,
+            treeNode45,
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode48,
+            treeNode49,
+            treeNode50});
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -135,6 +135,9 @@
             this.panelServices = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.btnServicesRun = new System.Windows.Forms.Button();
+            this.panelComputerManagement = new System.Windows.Forms.Panel();
+            this.btnComputerManagementRun = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -153,6 +156,7 @@
             this.panelNetstat.SuspendLayout();
             this.panelEventViewer.SuspendLayout();
             this.panelServices.SuspendLayout();
+            this.panelComputerManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -444,6 +448,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelComputerManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelServices);
             this.splitContainer1.Panel2.Controls.Add(this.panelEventViewer);
             this.splitContainer1.Panel2.Controls.Add(this.panelNetstat);
@@ -461,36 +466,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode27.Name = "ping";
-            treeNode27.Text = "Ping";
-            treeNode28.Name = "pingSweep";
-            treeNode28.Text = "Ping Sweep";
-            treeNode29.Name = "nslookup";
-            treeNode29.Text = "nslookup";
-            treeNode30.Name = "tracert";
-            treeNode30.Text = "tracert";
-            treeNode31.Name = "tcpPort";
-            treeNode31.Text = "TCP Port";
-            treeNode32.Name = "arp";
-            treeNode32.Text = "ARP";
-            treeNode33.Name = "netstat";
-            treeNode33.Text = "Netstat";
-            treeNode34.Name = "network";
-            treeNode34.Text = "Network";
-            treeNode35.Name = "eventViewer";
-            treeNode35.Text = "Event Viewer";
-            treeNode36.Name = "services";
-            treeNode36.Text = "Services";
-            treeNode37.Name = "computerManagement";
-            treeNode37.Text = "Computer Management";
-            treeNode38.Name = "windows";
-            treeNode38.Text = "Windows";
-            treeNode39.Name = "server";
-            treeNode39.Text = "Server";
+            treeNode40.Name = "ping";
+            treeNode40.Text = "Ping";
+            treeNode41.Name = "pingSweep";
+            treeNode41.Text = "Ping Sweep";
+            treeNode42.Name = "nslookup";
+            treeNode42.Text = "nslookup";
+            treeNode43.Name = "tracert";
+            treeNode43.Text = "tracert";
+            treeNode44.Name = "tcpPort";
+            treeNode44.Text = "TCP Port";
+            treeNode45.Name = "arp";
+            treeNode45.Text = "ARP";
+            treeNode46.Name = "netstat";
+            treeNode46.Text = "Netstat";
+            treeNode47.Name = "network";
+            treeNode47.Text = "Network";
+            treeNode48.Name = "eventViewer";
+            treeNode48.Text = "Event Viewer";
+            treeNode49.Name = "services";
+            treeNode49.Text = "Services";
+            treeNode50.Name = "computerManagement";
+            treeNode50.Text = "Computer Management";
+            treeNode51.Name = "windows";
+            treeNode51.Text = "Windows";
+            treeNode52.Name = "server";
+            treeNode52.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode34,
-            treeNode38,
-            treeNode39});
+            treeNode47,
+            treeNode51,
+            treeNode52});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1025,6 +1030,34 @@
             this.btnServicesRun.UseVisualStyleBackColor = true;
             this.btnServicesRun.Click += new System.EventHandler(this.btnServicesRun_Click);
             // 
+            // panelComputerManagement
+            // 
+            this.panelComputerManagement.Controls.Add(this.label20);
+            this.panelComputerManagement.Controls.Add(this.btnComputerManagementRun);
+            this.panelComputerManagement.Location = new System.Drawing.Point(10, 82);
+            this.panelComputerManagement.Name = "panelComputerManagement";
+            this.panelComputerManagement.Size = new System.Drawing.Size(935, 184);
+            this.panelComputerManagement.TabIndex = 11;
+            // 
+            // btnComputerManagementRun
+            // 
+            this.btnComputerManagementRun.Location = new System.Drawing.Point(14, 37);
+            this.btnComputerManagementRun.Name = "btnComputerManagementRun";
+            this.btnComputerManagementRun.Size = new System.Drawing.Size(226, 30);
+            this.btnComputerManagementRun.TabIndex = 0;
+            this.btnComputerManagementRun.Text = "コンピューターの管理を開く";
+            this.btnComputerManagementRun.UseVisualStyleBackColor = true;
+            this.btnComputerManagementRun.Click += new System.EventHandler(this.btnComputerManagementRun_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(175, 18);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "ComputerManagement";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1069,6 +1102,8 @@
             this.panelEventViewer.PerformLayout();
             this.panelServices.ResumeLayout(false);
             this.panelServices.PerformLayout();
+            this.panelComputerManagement.ResumeLayout(false);
+            this.panelComputerManagement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1159,6 +1194,9 @@
         private System.Windows.Forms.Panel panelServices;
         private System.Windows.Forms.Button btnServicesRun;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panelComputerManagement;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnComputerManagementRun;
     }
 }
 
