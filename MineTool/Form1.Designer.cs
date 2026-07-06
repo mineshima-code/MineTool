@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Device Manager");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Disk Management");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Local Users");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37,
+            treeNode38,
+            treeNode39});
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Device Manager");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Disk Management");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Local Users");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode42,
+            treeNode43,
+            treeNode44,
+            treeNode45,
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -147,6 +147,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.panelDiskManagement = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnDiskManagementRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -167,6 +170,7 @@
             this.panelPing.SuspendLayout();
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
+            this.panelDiskManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -458,6 +462,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelDiskManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelDeviceManager);
             this.splitContainer1.Panel2.Controls.Add(this.panelComputerManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelServices);
@@ -477,42 +482,42 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "ping";
-            treeNode1.Text = "Ping";
-            treeNode2.Name = "pingSweep";
-            treeNode2.Text = "Ping Sweep";
-            treeNode3.Name = "nslookup";
-            treeNode3.Text = "nslookup";
-            treeNode4.Name = "tracert";
-            treeNode4.Text = "tracert";
-            treeNode5.Name = "tcpPort";
-            treeNode5.Text = "TCP Port";
-            treeNode6.Name = "arp";
-            treeNode6.Text = "ARP";
-            treeNode7.Name = "netstat";
-            treeNode7.Text = "Netstat";
-            treeNode8.Name = "network";
-            treeNode8.Text = "Network";
-            treeNode9.Name = "eventViewer";
-            treeNode9.Text = "Event Viewer";
-            treeNode10.Name = "services";
-            treeNode10.Text = "Services";
-            treeNode11.Name = "computerManagement";
-            treeNode11.Text = "Computer Management";
-            treeNode12.Name = "DeviceManager";
-            treeNode12.Text = "Device Manager";
-            treeNode13.Name = "DiskManagement";
-            treeNode13.Text = "Disk Management";
-            treeNode14.Name = "LocalUsers";
-            treeNode14.Text = "Local Users";
-            treeNode15.Name = "windows";
-            treeNode15.Text = "Windows";
-            treeNode16.Name = "server";
-            treeNode16.Text = "Server";
+            treeNode33.Name = "ping";
+            treeNode33.Text = "Ping";
+            treeNode34.Name = "pingSweep";
+            treeNode34.Text = "Ping Sweep";
+            treeNode35.Name = "nslookup";
+            treeNode35.Text = "nslookup";
+            treeNode36.Name = "tracert";
+            treeNode36.Text = "tracert";
+            treeNode37.Name = "tcpPort";
+            treeNode37.Text = "TCP Port";
+            treeNode38.Name = "arp";
+            treeNode38.Text = "ARP";
+            treeNode39.Name = "netstat";
+            treeNode39.Text = "Netstat";
+            treeNode40.Name = "network";
+            treeNode40.Text = "Network";
+            treeNode41.Name = "eventViewer";
+            treeNode41.Text = "Event Viewer";
+            treeNode42.Name = "services";
+            treeNode42.Text = "Services";
+            treeNode43.Name = "computerManagement";
+            treeNode43.Text = "Computer Management";
+            treeNode44.Name = "DeviceManager";
+            treeNode44.Text = "Device Manager";
+            treeNode45.Name = "DiskManagement";
+            treeNode45.Text = "Disk Management";
+            treeNode46.Name = "LocalUsers";
+            treeNode46.Text = "Local Users";
+            treeNode47.Name = "windows";
+            treeNode47.Text = "Windows";
+            treeNode48.Name = "server";
+            treeNode48.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode15,
-            treeNode16});
+            treeNode40,
+            treeNode47,
+            treeNode48});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1103,6 +1108,34 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ここに画面タイトル";
             // 
+            // panelDiskManagement
+            // 
+            this.panelDiskManagement.Controls.Add(this.btnDiskManagementRun);
+            this.panelDiskManagement.Controls.Add(this.label22);
+            this.panelDiskManagement.Location = new System.Drawing.Point(11, 82);
+            this.panelDiskManagement.Name = "panelDiskManagement";
+            this.panelDiskManagement.Size = new System.Drawing.Size(935, 184);
+            this.panelDiskManagement.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(11, 10);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(139, 18);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Disk Management";
+            // 
+            // btnDiskManagementRun
+            // 
+            this.btnDiskManagementRun.Location = new System.Drawing.Point(13, 39);
+            this.btnDiskManagementRun.Name = "btnDiskManagementRun";
+            this.btnDiskManagementRun.Size = new System.Drawing.Size(226, 30);
+            this.btnDiskManagementRun.TabIndex = 1;
+            this.btnDiskManagementRun.Text = "ディスクの管理を開く";
+            this.btnDiskManagementRun.UseVisualStyleBackColor = true;
+            this.btnDiskManagementRun.Click += new System.EventHandler(this.btnDiskManagementRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1151,6 +1184,8 @@
             this.panelPingSweep.PerformLayout();
             this.panelNslookup.ResumeLayout(false);
             this.panelNslookup.PerformLayout();
+            this.panelDiskManagement.ResumeLayout(false);
+            this.panelDiskManagement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1247,6 +1282,9 @@
         private System.Windows.Forms.Panel panelDeviceManager;
         private System.Windows.Forms.Button btnDeviceManagerRun;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panelDiskManagement;
+        private System.Windows.Forms.Button btnDiskManagementRun;
+        private System.Windows.Forms.Label label22;
     }
 }
 
