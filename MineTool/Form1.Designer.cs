@@ -28,29 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode40,
-            treeNode41,
-            treeNode42,
-            treeNode43,
-            treeNode44,
-            treeNode45,
-            treeNode46});
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode48,
-            treeNode49,
-            treeNode50});
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Device Manager");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Disk Management");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Local Users");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -80,6 +86,45 @@
             this.btnEventViewer = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.panelDeviceManager = new System.Windows.Forms.Panel();
+            this.btnDeviceManagerRun = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panelComputerManagement = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnComputerManagementRun = new System.Windows.Forms.Button();
+            this.panelServices = new System.Windows.Forms.Panel();
+            this.btnServicesRun = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panelEventViewer = new System.Windows.Forms.Panel();
+            this.btnEventViewerSecurity = new System.Windows.Forms.Button();
+            this.btnEventViewerApplication = new System.Windows.Forms.Button();
+            this.btnEventViewerSystem = new System.Windows.Forms.Button();
+            this.btnEventViewerRun = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panelNetstat = new System.Windows.Forms.Panel();
+            this.btnNetstatStop = new System.Windows.Forms.Button();
+            this.btnNetstatRun = new System.Windows.Forms.Button();
+            this.chkNetstatNumeric = new System.Windows.Forms.CheckBox();
+            this.chkNetstatAll = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panelArp = new System.Windows.Forms.Panel();
+            this.btnArpRun = new System.Windows.Forms.Button();
+            this.txtArpHost = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panelTcpPort = new System.Windows.Forms.Panel();
+            this.btnTcpPortRun = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTcpPort = new System.Windows.Forms.TextBox();
+            this.txtTcpHost = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.paneltracert = new System.Windows.Forms.Panel();
+            this.btnTracertStop = new System.Windows.Forms.Button();
+            this.btnTracertRun = new System.Windows.Forms.Button();
+            this.txtTracertHost = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panelWork = new System.Windows.Forms.Panel();
             this.panelPing = new System.Windows.Forms.Panel();
             this.btnPingStop = new System.Windows.Forms.Button();
@@ -102,42 +147,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.paneltracert = new System.Windows.Forms.Panel();
-            this.btnTracertStop = new System.Windows.Forms.Button();
-            this.btnTracertRun = new System.Windows.Forms.Button();
-            this.txtTracertHost = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panelTcpPort = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTcpHost = new System.Windows.Forms.TextBox();
-            this.txtTcpPort = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnTcpPortRun = new System.Windows.Forms.Button();
-            this.panelArp = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtArpHost = new System.Windows.Forms.TextBox();
-            this.btnArpRun = new System.Windows.Forms.Button();
-            this.panelNetstat = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.chkNetstatAll = new System.Windows.Forms.CheckBox();
-            this.chkNetstatNumeric = new System.Windows.Forms.CheckBox();
-            this.btnNetstatRun = new System.Windows.Forms.Button();
-            this.btnNetstatStop = new System.Windows.Forms.Button();
-            this.panelEventViewer = new System.Windows.Forms.Panel();
-            this.btnEventViewerRun = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnEventViewerSystem = new System.Windows.Forms.Button();
-            this.btnEventViewerApplication = new System.Windows.Forms.Button();
-            this.btnEventViewerSecurity = new System.Windows.Forms.Button();
-            this.panelServices = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnServicesRun = new System.Windows.Forms.Button();
-            this.panelComputerManagement = new System.Windows.Forms.Panel();
-            this.btnComputerManagementRun = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -146,17 +155,18 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelDeviceManager.SuspendLayout();
+            this.panelComputerManagement.SuspendLayout();
+            this.panelServices.SuspendLayout();
+            this.panelEventViewer.SuspendLayout();
+            this.panelNetstat.SuspendLayout();
+            this.panelArp.SuspendLayout();
+            this.panelTcpPort.SuspendLayout();
+            this.paneltracert.SuspendLayout();
             this.panelWork.SuspendLayout();
             this.panelPing.SuspendLayout();
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
-            this.paneltracert.SuspendLayout();
-            this.panelTcpPort.SuspendLayout();
-            this.panelArp.SuspendLayout();
-            this.panelNetstat.SuspendLayout();
-            this.panelEventViewer.SuspendLayout();
-            this.panelServices.SuspendLayout();
-            this.panelComputerManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -448,6 +458,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelDeviceManager);
             this.splitContainer1.Panel2.Controls.Add(this.panelComputerManagement);
             this.splitContainer1.Panel2.Controls.Add(this.panelServices);
             this.splitContainer1.Panel2.Controls.Add(this.panelEventViewer);
@@ -466,39 +477,422 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode40.Name = "ping";
-            treeNode40.Text = "Ping";
-            treeNode41.Name = "pingSweep";
-            treeNode41.Text = "Ping Sweep";
-            treeNode42.Name = "nslookup";
-            treeNode42.Text = "nslookup";
-            treeNode43.Name = "tracert";
-            treeNode43.Text = "tracert";
-            treeNode44.Name = "tcpPort";
-            treeNode44.Text = "TCP Port";
-            treeNode45.Name = "arp";
-            treeNode45.Text = "ARP";
-            treeNode46.Name = "netstat";
-            treeNode46.Text = "Netstat";
-            treeNode47.Name = "network";
-            treeNode47.Text = "Network";
-            treeNode48.Name = "eventViewer";
-            treeNode48.Text = "Event Viewer";
-            treeNode49.Name = "services";
-            treeNode49.Text = "Services";
-            treeNode50.Name = "computerManagement";
-            treeNode50.Text = "Computer Management";
-            treeNode51.Name = "windows";
-            treeNode51.Text = "Windows";
-            treeNode52.Name = "server";
-            treeNode52.Text = "Server";
+            treeNode1.Name = "ping";
+            treeNode1.Text = "Ping";
+            treeNode2.Name = "pingSweep";
+            treeNode2.Text = "Ping Sweep";
+            treeNode3.Name = "nslookup";
+            treeNode3.Text = "nslookup";
+            treeNode4.Name = "tracert";
+            treeNode4.Text = "tracert";
+            treeNode5.Name = "tcpPort";
+            treeNode5.Text = "TCP Port";
+            treeNode6.Name = "arp";
+            treeNode6.Text = "ARP";
+            treeNode7.Name = "netstat";
+            treeNode7.Text = "Netstat";
+            treeNode8.Name = "network";
+            treeNode8.Text = "Network";
+            treeNode9.Name = "eventViewer";
+            treeNode9.Text = "Event Viewer";
+            treeNode10.Name = "services";
+            treeNode10.Text = "Services";
+            treeNode11.Name = "computerManagement";
+            treeNode11.Text = "Computer Management";
+            treeNode12.Name = "DeviceManager";
+            treeNode12.Text = "Device Manager";
+            treeNode13.Name = "DiskManagement";
+            treeNode13.Text = "Disk Management";
+            treeNode14.Name = "LocalUsers";
+            treeNode14.Text = "Local Users";
+            treeNode15.Name = "windows";
+            treeNode15.Text = "Windows";
+            treeNode16.Name = "server";
+            treeNode16.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode47,
-            treeNode51,
-            treeNode52});
+            treeNode8,
+            treeNode15,
+            treeNode16});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // panelDeviceManager
+            // 
+            this.panelDeviceManager.Controls.Add(this.btnDeviceManagerRun);
+            this.panelDeviceManager.Controls.Add(this.label21);
+            this.panelDeviceManager.Location = new System.Drawing.Point(10, 82);
+            this.panelDeviceManager.Name = "panelDeviceManager";
+            this.panelDeviceManager.Size = new System.Drawing.Size(935, 184);
+            this.panelDeviceManager.TabIndex = 12;
+            // 
+            // btnDeviceManagerRun
+            // 
+            this.btnDeviceManagerRun.Location = new System.Drawing.Point(14, 35);
+            this.btnDeviceManagerRun.Name = "btnDeviceManagerRun";
+            this.btnDeviceManagerRun.Size = new System.Drawing.Size(226, 30);
+            this.btnDeviceManagerRun.TabIndex = 1;
+            this.btnDeviceManagerRun.Text = "デバイスマネージャーを開く";
+            this.btnDeviceManagerRun.UseVisualStyleBackColor = true;
+            this.btnDeviceManagerRun.Click += new System.EventHandler(this.btnDeviceManagerRun_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 9);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(123, 18);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "DeviceManager";
+            // 
+            // panelComputerManagement
+            // 
+            this.panelComputerManagement.Controls.Add(this.label20);
+            this.panelComputerManagement.Controls.Add(this.btnComputerManagementRun);
+            this.panelComputerManagement.Location = new System.Drawing.Point(10, 82);
+            this.panelComputerManagement.Name = "panelComputerManagement";
+            this.panelComputerManagement.Size = new System.Drawing.Size(935, 184);
+            this.panelComputerManagement.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(175, 18);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "ComputerManagement";
+            // 
+            // btnComputerManagementRun
+            // 
+            this.btnComputerManagementRun.Location = new System.Drawing.Point(14, 37);
+            this.btnComputerManagementRun.Name = "btnComputerManagementRun";
+            this.btnComputerManagementRun.Size = new System.Drawing.Size(226, 30);
+            this.btnComputerManagementRun.TabIndex = 0;
+            this.btnComputerManagementRun.Text = "コンピューターの管理を開く";
+            this.btnComputerManagementRun.UseVisualStyleBackColor = true;
+            this.btnComputerManagementRun.Click += new System.EventHandler(this.btnComputerManagementRun_Click);
+            // 
+            // panelServices
+            // 
+            this.panelServices.Controls.Add(this.btnServicesRun);
+            this.panelServices.Controls.Add(this.label19);
+            this.panelServices.Location = new System.Drawing.Point(10, 80);
+            this.panelServices.Name = "panelServices";
+            this.panelServices.Size = new System.Drawing.Size(935, 184);
+            this.panelServices.TabIndex = 10;
+            // 
+            // btnServicesRun
+            // 
+            this.btnServicesRun.Location = new System.Drawing.Point(14, 41);
+            this.btnServicesRun.Name = "btnServicesRun";
+            this.btnServicesRun.Size = new System.Drawing.Size(200, 30);
+            this.btnServicesRun.TabIndex = 1;
+            this.btnServicesRun.Text = "サービスを開く";
+            this.btnServicesRun.UseVisualStyleBackColor = true;
+            this.btnServicesRun.Click += new System.EventHandler(this.btnServicesRun_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(11, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 18);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Services";
+            // 
+            // panelEventViewer
+            // 
+            this.panelEventViewer.Controls.Add(this.btnEventViewerSecurity);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerApplication);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerSystem);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerRun);
+            this.panelEventViewer.Controls.Add(this.label18);
+            this.panelEventViewer.Location = new System.Drawing.Point(10, 82);
+            this.panelEventViewer.Name = "panelEventViewer";
+            this.panelEventViewer.Size = new System.Drawing.Size(935, 184);
+            this.panelEventViewer.TabIndex = 9;
+            // 
+            // btnEventViewerSecurity
+            // 
+            this.btnEventViewerSecurity.Location = new System.Drawing.Point(13, 151);
+            this.btnEventViewerSecurity.Name = "btnEventViewerSecurity";
+            this.btnEventViewerSecurity.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerSecurity.TabIndex = 4;
+            this.btnEventViewerSecurity.Text = "Securityログ";
+            this.btnEventViewerSecurity.UseVisualStyleBackColor = true;
+            this.btnEventViewerSecurity.Click += new System.EventHandler(this.btnEventViewerSecurity_Click);
+            // 
+            // btnEventViewerApplication
+            // 
+            this.btnEventViewerApplication.Location = new System.Drawing.Point(15, 115);
+            this.btnEventViewerApplication.Name = "btnEventViewerApplication";
+            this.btnEventViewerApplication.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerApplication.TabIndex = 3;
+            this.btnEventViewerApplication.Text = "Applicationログ";
+            this.btnEventViewerApplication.UseVisualStyleBackColor = true;
+            this.btnEventViewerApplication.Click += new System.EventHandler(this.btnEventViewerApplication_Click);
+            // 
+            // btnEventViewerSystem
+            // 
+            this.btnEventViewerSystem.Location = new System.Drawing.Point(15, 79);
+            this.btnEventViewerSystem.Name = "btnEventViewerSystem";
+            this.btnEventViewerSystem.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerSystem.TabIndex = 2;
+            this.btnEventViewerSystem.Text = "Systemログ";
+            this.btnEventViewerSystem.UseVisualStyleBackColor = true;
+            this.btnEventViewerSystem.Click += new System.EventHandler(this.btnEventViewerSystem_Click);
+            // 
+            // btnEventViewerRun
+            // 
+            this.btnEventViewerRun.Location = new System.Drawing.Point(13, 43);
+            this.btnEventViewerRun.Name = "btnEventViewerRun";
+            this.btnEventViewerRun.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerRun.TabIndex = 1;
+            this.btnEventViewerRun.Text = "イベントビューア";
+            this.btnEventViewerRun.UseVisualStyleBackColor = true;
+            this.btnEventViewerRun.Click += new System.EventHandler(this.btnEventViewerRun_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(10, 17);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 18);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Event Viewer";
+            // 
+            // panelNetstat
+            // 
+            this.panelNetstat.Controls.Add(this.btnNetstatStop);
+            this.panelNetstat.Controls.Add(this.btnNetstatRun);
+            this.panelNetstat.Controls.Add(this.chkNetstatNumeric);
+            this.panelNetstat.Controls.Add(this.chkNetstatAll);
+            this.panelNetstat.Controls.Add(this.label17);
+            this.panelNetstat.Location = new System.Drawing.Point(11, 81);
+            this.panelNetstat.Name = "panelNetstat";
+            this.panelNetstat.Size = new System.Drawing.Size(935, 184);
+            this.panelNetstat.TabIndex = 7;
+            // 
+            // btnNetstatStop
+            // 
+            this.btnNetstatStop.Location = new System.Drawing.Point(120, 127);
+            this.btnNetstatStop.Name = "btnNetstatStop";
+            this.btnNetstatStop.Size = new System.Drawing.Size(100, 30);
+            this.btnNetstatStop.TabIndex = 4;
+            this.btnNetstatStop.Text = "停止";
+            this.btnNetstatStop.UseVisualStyleBackColor = true;
+            this.btnNetstatStop.Click += new System.EventHandler(this.btnNetstatStop_Click);
+            // 
+            // btnNetstatRun
+            // 
+            this.btnNetstatRun.Location = new System.Drawing.Point(14, 127);
+            this.btnNetstatRun.Name = "btnNetstatRun";
+            this.btnNetstatRun.Size = new System.Drawing.Size(100, 30);
+            this.btnNetstatRun.TabIndex = 3;
+            this.btnNetstatRun.Text = "実行";
+            this.btnNetstatRun.UseVisualStyleBackColor = true;
+            this.btnNetstatRun.Click += new System.EventHandler(this.btnNetstatRun_Click);
+            // 
+            // chkNetstatNumeric
+            // 
+            this.chkNetstatNumeric.AutoSize = true;
+            this.chkNetstatNumeric.Checked = true;
+            this.chkNetstatNumeric.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNetstatNumeric.Location = new System.Drawing.Point(14, 82);
+            this.chkNetstatNumeric.Name = "chkNetstatNumeric";
+            this.chkNetstatNumeric.Size = new System.Drawing.Size(177, 22);
+            this.chkNetstatNumeric.TabIndex = 2;
+            this.chkNetstatNumeric.Text = "名前解決しない(-n)";
+            this.chkNetstatNumeric.UseVisualStyleBackColor = true;
+            // 
+            // chkNetstatAll
+            // 
+            this.chkNetstatAll.AutoSize = true;
+            this.chkNetstatAll.Checked = true;
+            this.chkNetstatAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNetstatAll.Location = new System.Drawing.Point(14, 41);
+            this.chkNetstatAll.Name = "chkNetstatAll";
+            this.chkNetstatAll.Size = new System.Drawing.Size(142, 22);
+            this.chkNetstatAll.TabIndex = 1;
+            this.chkNetstatAll.Text = "すべて表示(-a)";
+            this.chkNetstatAll.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 18);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Netstat";
+            // 
+            // panelArp
+            // 
+            this.panelArp.Controls.Add(this.btnArpRun);
+            this.panelArp.Controls.Add(this.txtArpHost);
+            this.panelArp.Controls.Add(this.label16);
+            this.panelArp.Controls.Add(this.label15);
+            this.panelArp.Location = new System.Drawing.Point(11, 82);
+            this.panelArp.Name = "panelArp";
+            this.panelArp.Size = new System.Drawing.Size(935, 184);
+            this.panelArp.TabIndex = 6;
+            // 
+            // btnArpRun
+            // 
+            this.btnArpRun.Location = new System.Drawing.Point(8, 84);
+            this.btnArpRun.Name = "btnArpRun";
+            this.btnArpRun.Size = new System.Drawing.Size(100, 30);
+            this.btnArpRun.TabIndex = 3;
+            this.btnArpRun.Text = "実行";
+            this.btnArpRun.UseVisualStyleBackColor = true;
+            this.btnArpRun.Click += new System.EventHandler(this.btnArpRun_Click);
+            // 
+            // txtArpHost
+            // 
+            this.txtArpHost.Location = new System.Drawing.Point(6, 53);
+            this.txtArpHost.Name = "txtArpHost";
+            this.txtArpHost.Size = new System.Drawing.Size(180, 25);
+            this.txtArpHost.TabIndex = 2;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 32);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(194, 18);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Host/IP(空欄なら全表示)";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 18);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "ARP";
+            // 
+            // panelTcpPort
+            // 
+            this.panelTcpPort.Controls.Add(this.btnTcpPortRun);
+            this.panelTcpPort.Controls.Add(this.label14);
+            this.panelTcpPort.Controls.Add(this.txtTcpPort);
+            this.panelTcpPort.Controls.Add(this.txtTcpHost);
+            this.panelTcpPort.Controls.Add(this.label13);
+            this.panelTcpPort.Controls.Add(this.label12);
+            this.panelTcpPort.Location = new System.Drawing.Point(7, 80);
+            this.panelTcpPort.Name = "panelTcpPort";
+            this.panelTcpPort.Size = new System.Drawing.Size(940, 182);
+            this.panelTcpPort.TabIndex = 5;
+            // 
+            // btnTcpPortRun
+            // 
+            this.btnTcpPortRun.Location = new System.Drawing.Point(13, 147);
+            this.btnTcpPortRun.Name = "btnTcpPortRun";
+            this.btnTcpPortRun.Size = new System.Drawing.Size(100, 30);
+            this.btnTcpPortRun.TabIndex = 5;
+            this.btnTcpPortRun.Text = "Scan";
+            this.btnTcpPortRun.UseVisualStyleBackColor = true;
+            this.btnTcpPortRun.Click += new System.EventHandler(this.btnTcpPortRun_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 95);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(200, 18);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Port（空欄なら主要ポート）";
+            // 
+            // txtTcpPort
+            // 
+            this.txtTcpPort.Location = new System.Drawing.Point(13, 117);
+            this.txtTcpPort.Name = "txtTcpPort";
+            this.txtTcpPort.Size = new System.Drawing.Size(180, 25);
+            this.txtTcpPort.TabIndex = 3;
+            // 
+            // txtTcpHost
+            // 
+            this.txtTcpHost.Location = new System.Drawing.Point(13, 54);
+            this.txtTcpHost.Name = "txtTcpHost";
+            this.txtTcpHost.Size = new System.Drawing.Size(180, 25);
+            this.txtTcpHost.TabIndex = 2;
+            this.txtTcpHost.Text = "8.8.8.8";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 18);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Host/IP";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "TCP Port";
+            // 
+            // paneltracert
+            // 
+            this.paneltracert.Controls.Add(this.btnTracertStop);
+            this.paneltracert.Controls.Add(this.btnTracertRun);
+            this.paneltracert.Controls.Add(this.txtTracertHost);
+            this.paneltracert.Controls.Add(this.label11);
+            this.paneltracert.Controls.Add(this.label10);
+            this.paneltracert.Location = new System.Drawing.Point(6, 80);
+            this.paneltracert.Name = "paneltracert";
+            this.paneltracert.Size = new System.Drawing.Size(943, 185);
+            this.paneltracert.TabIndex = 4;
+            // 
+            // btnTracertStop
+            // 
+            this.btnTracertStop.Location = new System.Drawing.Point(117, 106);
+            this.btnTracertStop.Name = "btnTracertStop";
+            this.btnTracertStop.Size = new System.Drawing.Size(100, 30);
+            this.btnTracertStop.TabIndex = 4;
+            this.btnTracertStop.Text = "停止";
+            this.btnTracertStop.UseVisualStyleBackColor = true;
+            // 
+            // btnTracertRun
+            // 
+            this.btnTracertRun.Location = new System.Drawing.Point(11, 106);
+            this.btnTracertRun.Name = "btnTracertRun";
+            this.btnTracertRun.Size = new System.Drawing.Size(100, 30);
+            this.btnTracertRun.TabIndex = 3;
+            this.btnTracertRun.Text = "tracert";
+            this.btnTracertRun.UseVisualStyleBackColor = true;
+            // 
+            // txtTracertHost
+            // 
+            this.txtTracertHost.Location = new System.Drawing.Point(11, 63);
+            this.txtTracertHost.Name = "txtTracertHost";
+            this.txtTracertHost.Size = new System.Drawing.Size(180, 25);
+            this.txtTracertHost.TabIndex = 2;
+            this.txtTracertHost.Text = "8.8.8.8";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 18);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Host/IP";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 18);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "tracert";
             // 
             // panelWork
             // 
@@ -709,355 +1103,6 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ここに画面タイトル";
             // 
-            // paneltracert
-            // 
-            this.paneltracert.Controls.Add(this.btnTracertStop);
-            this.paneltracert.Controls.Add(this.btnTracertRun);
-            this.paneltracert.Controls.Add(this.txtTracertHost);
-            this.paneltracert.Controls.Add(this.label11);
-            this.paneltracert.Controls.Add(this.label10);
-            this.paneltracert.Location = new System.Drawing.Point(6, 80);
-            this.paneltracert.Name = "paneltracert";
-            this.paneltracert.Size = new System.Drawing.Size(943, 185);
-            this.paneltracert.TabIndex = 4;
-            // 
-            // btnTracertStop
-            // 
-            this.btnTracertStop.Location = new System.Drawing.Point(117, 106);
-            this.btnTracertStop.Name = "btnTracertStop";
-            this.btnTracertStop.Size = new System.Drawing.Size(100, 30);
-            this.btnTracertStop.TabIndex = 4;
-            this.btnTracertStop.Text = "停止";
-            this.btnTracertStop.UseVisualStyleBackColor = true;
-            // 
-            // btnTracertRun
-            // 
-            this.btnTracertRun.Location = new System.Drawing.Point(11, 106);
-            this.btnTracertRun.Name = "btnTracertRun";
-            this.btnTracertRun.Size = new System.Drawing.Size(100, 30);
-            this.btnTracertRun.TabIndex = 3;
-            this.btnTracertRun.Text = "tracert";
-            this.btnTracertRun.UseVisualStyleBackColor = true;
-            // 
-            // txtTracertHost
-            // 
-            this.txtTracertHost.Location = new System.Drawing.Point(11, 63);
-            this.txtTracertHost.Name = "txtTracertHost";
-            this.txtTracertHost.Size = new System.Drawing.Size(180, 25);
-            this.txtTracertHost.TabIndex = 2;
-            this.txtTracertHost.Text = "8.8.8.8";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 18);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Host/IP";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 8);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 18);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "tracert";
-            // 
-            // panelTcpPort
-            // 
-            this.panelTcpPort.Controls.Add(this.btnTcpPortRun);
-            this.panelTcpPort.Controls.Add(this.label14);
-            this.panelTcpPort.Controls.Add(this.txtTcpPort);
-            this.panelTcpPort.Controls.Add(this.txtTcpHost);
-            this.panelTcpPort.Controls.Add(this.label13);
-            this.panelTcpPort.Controls.Add(this.label12);
-            this.panelTcpPort.Location = new System.Drawing.Point(7, 80);
-            this.panelTcpPort.Name = "panelTcpPort";
-            this.panelTcpPort.Size = new System.Drawing.Size(940, 182);
-            this.panelTcpPort.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 10);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 18);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "TCP Port";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 33);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 18);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Host/IP";
-            // 
-            // txtTcpHost
-            // 
-            this.txtTcpHost.Location = new System.Drawing.Point(13, 54);
-            this.txtTcpHost.Name = "txtTcpHost";
-            this.txtTcpHost.Size = new System.Drawing.Size(180, 25);
-            this.txtTcpHost.TabIndex = 2;
-            this.txtTcpHost.Text = "8.8.8.8";
-            // 
-            // txtTcpPort
-            // 
-            this.txtTcpPort.Location = new System.Drawing.Point(13, 117);
-            this.txtTcpPort.Name = "txtTcpPort";
-            this.txtTcpPort.Size = new System.Drawing.Size(180, 25);
-            this.txtTcpPort.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 95);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(200, 18);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Port（空欄なら主要ポート）";
-            // 
-            // btnTcpPortRun
-            // 
-            this.btnTcpPortRun.Location = new System.Drawing.Point(13, 147);
-            this.btnTcpPortRun.Name = "btnTcpPortRun";
-            this.btnTcpPortRun.Size = new System.Drawing.Size(100, 30);
-            this.btnTcpPortRun.TabIndex = 5;
-            this.btnTcpPortRun.Text = "Scan";
-            this.btnTcpPortRun.UseVisualStyleBackColor = true;
-            this.btnTcpPortRun.Click += new System.EventHandler(this.btnTcpPortRun_Click);
-            // 
-            // panelArp
-            // 
-            this.panelArp.Controls.Add(this.btnArpRun);
-            this.panelArp.Controls.Add(this.txtArpHost);
-            this.panelArp.Controls.Add(this.label16);
-            this.panelArp.Controls.Add(this.label15);
-            this.panelArp.Location = new System.Drawing.Point(11, 82);
-            this.panelArp.Name = "panelArp";
-            this.panelArp.Size = new System.Drawing.Size(935, 184);
-            this.panelArp.TabIndex = 6;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 18);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "ARP";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 32);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(194, 18);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Host/IP(空欄なら全表示)";
-            // 
-            // txtArpHost
-            // 
-            this.txtArpHost.Location = new System.Drawing.Point(6, 53);
-            this.txtArpHost.Name = "txtArpHost";
-            this.txtArpHost.Size = new System.Drawing.Size(180, 25);
-            this.txtArpHost.TabIndex = 2;
-            // 
-            // btnArpRun
-            // 
-            this.btnArpRun.Location = new System.Drawing.Point(8, 84);
-            this.btnArpRun.Name = "btnArpRun";
-            this.btnArpRun.Size = new System.Drawing.Size(100, 30);
-            this.btnArpRun.TabIndex = 3;
-            this.btnArpRun.Text = "実行";
-            this.btnArpRun.UseVisualStyleBackColor = true;
-            this.btnArpRun.Click += new System.EventHandler(this.btnArpRun_Click);
-            // 
-            // panelNetstat
-            // 
-            this.panelNetstat.Controls.Add(this.btnNetstatStop);
-            this.panelNetstat.Controls.Add(this.btnNetstatRun);
-            this.panelNetstat.Controls.Add(this.chkNetstatNumeric);
-            this.panelNetstat.Controls.Add(this.chkNetstatAll);
-            this.panelNetstat.Controls.Add(this.label17);
-            this.panelNetstat.Location = new System.Drawing.Point(11, 81);
-            this.panelNetstat.Name = "panelNetstat";
-            this.panelNetstat.Size = new System.Drawing.Size(935, 184);
-            this.panelNetstat.TabIndex = 7;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 12);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 18);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Netstat";
-            // 
-            // chkNetstatAll
-            // 
-            this.chkNetstatAll.AutoSize = true;
-            this.chkNetstatAll.Checked = true;
-            this.chkNetstatAll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNetstatAll.Location = new System.Drawing.Point(14, 41);
-            this.chkNetstatAll.Name = "chkNetstatAll";
-            this.chkNetstatAll.Size = new System.Drawing.Size(142, 22);
-            this.chkNetstatAll.TabIndex = 1;
-            this.chkNetstatAll.Text = "すべて表示(-a)";
-            this.chkNetstatAll.UseVisualStyleBackColor = true;
-            // 
-            // chkNetstatNumeric
-            // 
-            this.chkNetstatNumeric.AutoSize = true;
-            this.chkNetstatNumeric.Checked = true;
-            this.chkNetstatNumeric.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNetstatNumeric.Location = new System.Drawing.Point(14, 82);
-            this.chkNetstatNumeric.Name = "chkNetstatNumeric";
-            this.chkNetstatNumeric.Size = new System.Drawing.Size(177, 22);
-            this.chkNetstatNumeric.TabIndex = 2;
-            this.chkNetstatNumeric.Text = "名前解決しない(-n)";
-            this.chkNetstatNumeric.UseVisualStyleBackColor = true;
-            // 
-            // btnNetstatRun
-            // 
-            this.btnNetstatRun.Location = new System.Drawing.Point(14, 127);
-            this.btnNetstatRun.Name = "btnNetstatRun";
-            this.btnNetstatRun.Size = new System.Drawing.Size(100, 30);
-            this.btnNetstatRun.TabIndex = 3;
-            this.btnNetstatRun.Text = "実行";
-            this.btnNetstatRun.UseVisualStyleBackColor = true;
-            this.btnNetstatRun.Click += new System.EventHandler(this.btnNetstatRun_Click);
-            // 
-            // btnNetstatStop
-            // 
-            this.btnNetstatStop.Location = new System.Drawing.Point(120, 127);
-            this.btnNetstatStop.Name = "btnNetstatStop";
-            this.btnNetstatStop.Size = new System.Drawing.Size(100, 30);
-            this.btnNetstatStop.TabIndex = 4;
-            this.btnNetstatStop.Text = "停止";
-            this.btnNetstatStop.UseVisualStyleBackColor = true;
-            this.btnNetstatStop.Click += new System.EventHandler(this.btnNetstatStop_Click);
-            // 
-            // panelEventViewer
-            // 
-            this.panelEventViewer.Controls.Add(this.btnEventViewerSecurity);
-            this.panelEventViewer.Controls.Add(this.btnEventViewerApplication);
-            this.panelEventViewer.Controls.Add(this.btnEventViewerSystem);
-            this.panelEventViewer.Controls.Add(this.btnEventViewerRun);
-            this.panelEventViewer.Controls.Add(this.label18);
-            this.panelEventViewer.Location = new System.Drawing.Point(10, 82);
-            this.panelEventViewer.Name = "panelEventViewer";
-            this.panelEventViewer.Size = new System.Drawing.Size(935, 184);
-            this.panelEventViewer.TabIndex = 9;
-            // 
-            // btnEventViewerRun
-            // 
-            this.btnEventViewerRun.Location = new System.Drawing.Point(13, 43);
-            this.btnEventViewerRun.Name = "btnEventViewerRun";
-            this.btnEventViewerRun.Size = new System.Drawing.Size(200, 30);
-            this.btnEventViewerRun.TabIndex = 1;
-            this.btnEventViewerRun.Text = "イベントビューア";
-            this.btnEventViewerRun.UseVisualStyleBackColor = true;
-            this.btnEventViewerRun.Click += new System.EventHandler(this.btnEventViewerRun_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(10, 17);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(107, 18);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Event Viewer";
-            // 
-            // btnEventViewerSystem
-            // 
-            this.btnEventViewerSystem.Location = new System.Drawing.Point(15, 79);
-            this.btnEventViewerSystem.Name = "btnEventViewerSystem";
-            this.btnEventViewerSystem.Size = new System.Drawing.Size(200, 30);
-            this.btnEventViewerSystem.TabIndex = 2;
-            this.btnEventViewerSystem.Text = "Systemログ";
-            this.btnEventViewerSystem.UseVisualStyleBackColor = true;
-            this.btnEventViewerSystem.Click += new System.EventHandler(this.btnEventViewerSystem_Click);
-            // 
-            // btnEventViewerApplication
-            // 
-            this.btnEventViewerApplication.Location = new System.Drawing.Point(15, 115);
-            this.btnEventViewerApplication.Name = "btnEventViewerApplication";
-            this.btnEventViewerApplication.Size = new System.Drawing.Size(200, 30);
-            this.btnEventViewerApplication.TabIndex = 3;
-            this.btnEventViewerApplication.Text = "Applicationログ";
-            this.btnEventViewerApplication.UseVisualStyleBackColor = true;
-            this.btnEventViewerApplication.Click += new System.EventHandler(this.btnEventViewerApplication_Click);
-            // 
-            // btnEventViewerSecurity
-            // 
-            this.btnEventViewerSecurity.Location = new System.Drawing.Point(13, 151);
-            this.btnEventViewerSecurity.Name = "btnEventViewerSecurity";
-            this.btnEventViewerSecurity.Size = new System.Drawing.Size(200, 30);
-            this.btnEventViewerSecurity.TabIndex = 4;
-            this.btnEventViewerSecurity.Text = "Securityログ";
-            this.btnEventViewerSecurity.UseVisualStyleBackColor = true;
-            this.btnEventViewerSecurity.Click += new System.EventHandler(this.btnEventViewerSecurity_Click);
-            // 
-            // panelServices
-            // 
-            this.panelServices.Controls.Add(this.btnServicesRun);
-            this.panelServices.Controls.Add(this.label19);
-            this.panelServices.Location = new System.Drawing.Point(10, 80);
-            this.panelServices.Name = "panelServices";
-            this.panelServices.Size = new System.Drawing.Size(935, 184);
-            this.panelServices.TabIndex = 10;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(11, 12);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(73, 18);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Services";
-            // 
-            // btnServicesRun
-            // 
-            this.btnServicesRun.Location = new System.Drawing.Point(14, 41);
-            this.btnServicesRun.Name = "btnServicesRun";
-            this.btnServicesRun.Size = new System.Drawing.Size(200, 30);
-            this.btnServicesRun.TabIndex = 1;
-            this.btnServicesRun.Text = "サービスを開く";
-            this.btnServicesRun.UseVisualStyleBackColor = true;
-            this.btnServicesRun.Click += new System.EventHandler(this.btnServicesRun_Click);
-            // 
-            // panelComputerManagement
-            // 
-            this.panelComputerManagement.Controls.Add(this.label20);
-            this.panelComputerManagement.Controls.Add(this.btnComputerManagementRun);
-            this.panelComputerManagement.Location = new System.Drawing.Point(10, 82);
-            this.panelComputerManagement.Name = "panelComputerManagement";
-            this.panelComputerManagement.Size = new System.Drawing.Size(935, 184);
-            this.panelComputerManagement.TabIndex = 11;
-            // 
-            // btnComputerManagementRun
-            // 
-            this.btnComputerManagementRun.Location = new System.Drawing.Point(14, 37);
-            this.btnComputerManagementRun.Name = "btnComputerManagementRun";
-            this.btnComputerManagementRun.Size = new System.Drawing.Size(226, 30);
-            this.btnComputerManagementRun.TabIndex = 0;
-            this.btnComputerManagementRun.Text = "コンピューターの管理を開く";
-            this.btnComputerManagementRun.UseVisualStyleBackColor = true;
-            this.btnComputerManagementRun.Click += new System.EventHandler(this.btnComputerManagementRun_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 8);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(175, 18);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "ComputerManagement";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1083,6 +1128,22 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelDeviceManager.ResumeLayout(false);
+            this.panelDeviceManager.PerformLayout();
+            this.panelComputerManagement.ResumeLayout(false);
+            this.panelComputerManagement.PerformLayout();
+            this.panelServices.ResumeLayout(false);
+            this.panelServices.PerformLayout();
+            this.panelEventViewer.ResumeLayout(false);
+            this.panelEventViewer.PerformLayout();
+            this.panelNetstat.ResumeLayout(false);
+            this.panelNetstat.PerformLayout();
+            this.panelArp.ResumeLayout(false);
+            this.panelArp.PerformLayout();
+            this.panelTcpPort.ResumeLayout(false);
+            this.panelTcpPort.PerformLayout();
+            this.paneltracert.ResumeLayout(false);
+            this.paneltracert.PerformLayout();
             this.panelWork.ResumeLayout(false);
             this.panelPing.ResumeLayout(false);
             this.panelPing.PerformLayout();
@@ -1090,20 +1151,6 @@
             this.panelPingSweep.PerformLayout();
             this.panelNslookup.ResumeLayout(false);
             this.panelNslookup.PerformLayout();
-            this.paneltracert.ResumeLayout(false);
-            this.paneltracert.PerformLayout();
-            this.panelTcpPort.ResumeLayout(false);
-            this.panelTcpPort.PerformLayout();
-            this.panelArp.ResumeLayout(false);
-            this.panelArp.PerformLayout();
-            this.panelNetstat.ResumeLayout(false);
-            this.panelNetstat.PerformLayout();
-            this.panelEventViewer.ResumeLayout(false);
-            this.panelEventViewer.PerformLayout();
-            this.panelServices.ResumeLayout(false);
-            this.panelServices.PerformLayout();
-            this.panelComputerManagement.ResumeLayout(false);
-            this.panelComputerManagement.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1197,6 +1244,9 @@
         private System.Windows.Forms.Panel panelComputerManagement;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnComputerManagementRun;
+        private System.Windows.Forms.Panel panelDeviceManager;
+        private System.Windows.Forms.Button btnDeviceManagerRun;
+        private System.Windows.Forms.Label label21;
     }
 }
 

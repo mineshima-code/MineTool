@@ -214,6 +214,8 @@ namespace MineTool
             btnServicesRun.Click += btnServicesRun_Click;
             btnComputerManagementRun.Click -= btnComputerManagementRun_Click;
             btnComputerManagementRun.Click += btnComputerManagementRun_Click;
+            btnDeviceManagerRun.Click -= btnDeviceManagerRun_Click;
+            btnDeviceManagerRun.Click += btnDeviceManagerRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -471,6 +473,9 @@ namespace MineTool
                 case "Computer Management":
                     ShowPanel(panelComputerManagement, "Computer Management");
                     break;
+                case "Device Manager":
+                    ShowPanel(panelDeviceManager, "Device Manager");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -493,6 +498,7 @@ namespace MineTool
             panelEventViewer.Visible = false;
             panelServices.Visible = false;
             panelComputerManagement.Visible = false;
+            panelDeviceManager.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -854,6 +860,14 @@ namespace MineTool
             Process.Start("compmgmt.msc");
             AddLog("コンピューターの管理を起動しました。");
         }
+
+        private void btnDeviceManagerRun_Click(object sender, EventArgs e)
+        {
+            Process.Start("devmgmt.msc");
+
+            AddLog("デバイスマネージャーを起動しました。");
+        }
+                
     }
 }
 
