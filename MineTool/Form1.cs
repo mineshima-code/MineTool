@@ -734,20 +734,48 @@ namespace MineTool
             string args = "";
 
             if (chkNetstatAll.Checked)
-            {
                 args += "-a ";
-            }
 
             if (chkNetstatNumeric.Checked)
-            {
                 args += "-n ";
-            }
 
             textBox1.Clear();
 
             AddLog("netstat開始 : " + args.Trim());
 
-            RunCommand("netstat.exe", args.Trim());
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "netstat.exe";
+            psi.Arguments = args.Trim();
+            psi.UseShellExecute = false;
+            psi.RedirectStandardOutput = true;
+            psi.CreateNoWindow = true;
+            psi.StandardOutputEncoding = Encoding.GetEncoding("shift_jis");
+
+            currentProcess = new Process();
+            currentProcess.StartInfo = psi;
+
+            currentProcess.OutputDataReceived += (s, ev) =>
+            {
+                if (ev.Data != null)
+                {
+                    Invoke(new Action(() =>
+                    {
+                        AddLog(ev.Data);
+                    }));
+                }
+            };
+
+            currentProcess.Start();
+            currentProcess.BeginOutputReadLine();
+        }
+
+        private void btnNetstatStop_Click(object sender, EventArgs e)
+        {
+            if (currentProcess != null && !currentProcess.HasExited)
+            {
+                currentProcess.Kill();
+                AddLog("netstatを停止しました。");
+            }
         }
     }
 }

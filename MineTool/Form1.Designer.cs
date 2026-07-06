@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode66,
-            treeNode67,
-            treeNode68,
-            treeNode69,
-            treeNode70,
-            treeNode71,
-            treeNode72});
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode74,
-            treeNode75,
-            treeNode76});
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -125,6 +125,7 @@
             this.chkNetstatAll = new System.Windows.Forms.CheckBox();
             this.chkNetstatNumeric = new System.Windows.Forms.CheckBox();
             this.btnNetstatRun = new System.Windows.Forms.Button();
+            this.btnNetstatStop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -447,36 +448,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode66.Name = "ping";
-            treeNode66.Text = "Ping";
-            treeNode67.Name = "pingSweep";
-            treeNode67.Text = "Ping Sweep";
-            treeNode68.Name = "nslookup";
-            treeNode68.Text = "nslookup";
-            treeNode69.Name = "tracert";
-            treeNode69.Text = "tracert";
-            treeNode70.Name = "tcpPort";
-            treeNode70.Text = "TCP Port";
-            treeNode71.Name = "arp";
-            treeNode71.Text = "ARP";
-            treeNode72.Name = "netstat";
-            treeNode72.Text = "Netstat";
-            treeNode73.Name = "network";
-            treeNode73.Text = "Network";
-            treeNode74.Name = "eventViewer";
-            treeNode74.Text = "Event Viewer";
-            treeNode75.Name = "services";
-            treeNode75.Text = "Services";
-            treeNode76.Name = "computerManagement";
-            treeNode76.Text = "Computer Management";
-            treeNode77.Name = "windows";
-            treeNode77.Text = "Windows";
-            treeNode78.Name = "server";
-            treeNode78.Text = "Server";
+            treeNode14.Name = "ping";
+            treeNode14.Text = "Ping";
+            treeNode15.Name = "pingSweep";
+            treeNode15.Text = "Ping Sweep";
+            treeNode16.Name = "nslookup";
+            treeNode16.Text = "nslookup";
+            treeNode17.Name = "tracert";
+            treeNode17.Text = "tracert";
+            treeNode18.Name = "tcpPort";
+            treeNode18.Text = "TCP Port";
+            treeNode19.Name = "arp";
+            treeNode19.Text = "ARP";
+            treeNode20.Name = "netstat";
+            treeNode20.Text = "Netstat";
+            treeNode21.Name = "network";
+            treeNode21.Text = "Network";
+            treeNode22.Name = "eventViewer";
+            treeNode22.Text = "Event Viewer";
+            treeNode23.Name = "services";
+            treeNode23.Text = "Services";
+            treeNode24.Name = "computerManagement";
+            treeNode24.Text = "Computer Management";
+            treeNode25.Name = "windows";
+            treeNode25.Text = "Windows";
+            treeNode26.Name = "server";
+            treeNode26.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode73,
-            treeNode77,
-            treeNode78});
+            treeNode21,
+            treeNode25,
+            treeNode26});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -859,6 +860,7 @@
             // 
             // panelNetstat
             // 
+            this.panelNetstat.Controls.Add(this.btnNetstatStop);
             this.panelNetstat.Controls.Add(this.btnNetstatRun);
             this.panelNetstat.Controls.Add(this.chkNetstatNumeric);
             this.panelNetstat.Controls.Add(this.chkNetstatAll);
@@ -910,6 +912,16 @@
             this.btnNetstatRun.Text = "実行";
             this.btnNetstatRun.UseVisualStyleBackColor = true;
             this.btnNetstatRun.Click += new System.EventHandler(this.btnNetstatRun_Click);
+            // 
+            // btnNetstatStop
+            // 
+            this.btnNetstatStop.Location = new System.Drawing.Point(120, 127);
+            this.btnNetstatStop.Name = "btnNetstatStop";
+            this.btnNetstatStop.Size = new System.Drawing.Size(100, 30);
+            this.btnNetstatStop.TabIndex = 4;
+            this.btnNetstatStop.Text = "停止";
+            this.btnNetstatStop.UseVisualStyleBackColor = true;
+            this.btnNetstatStop.Click += new System.EventHandler(this.btnNetstatStop_Click);
             // 
             // Form1
             // 
@@ -1031,6 +1043,7 @@
         private System.Windows.Forms.CheckBox chkNetstatNumeric;
         private System.Windows.Forms.CheckBox chkNetstatAll;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnNetstatStop;
     }
 }
 
