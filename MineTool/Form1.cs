@@ -201,6 +201,8 @@ namespace MineTool
             btnTcpPortRun.Click += btnTcpPortRun_Click;
             btnArpRun.Click -= btnArpRun_Click;
             btnArpRun.Click += btnArpRun_Click;
+            btnNetstatRun.Click -= btnNetstatRun_Click;
+            btnNetstatRun.Click += btnNetstatRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -446,6 +448,9 @@ namespace MineTool
                 case "ARP":
                     ShowPanel(panelArp, "ARP");
                     break;
+                case "Netstat":
+                    ShowPanel(panelNetstat, "Netstat");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -464,6 +469,7 @@ namespace MineTool
             paneltracert.Visible = false;
             panelTcpPort.Visible = false;
             panelArp.Visible = false;
+            panelNetstat.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -721,6 +727,27 @@ namespace MineTool
                 AddLog("ARP取得 : " + txtArpHost.Text);
                 RunCommand("arp.exe", "-a " + txtArpHost.Text.Trim());
             }
+        }
+
+        private void btnNetstatRun_Click(object sender, EventArgs e)
+        {
+            string args = "";
+
+            if (chkNetstatAll.Checked)
+            {
+                args += "-a ";
+            }
+
+            if (chkNetstatNumeric.Checked)
+            {
+                args += "-n ";
+            }
+
+            textBox1.Clear();
+
+            AddLog("netstat開始 : " + args.Trim());
+
+            RunCommand("netstat.exe", args.Trim());
         }
     }
 }

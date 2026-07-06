@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode131,
-            treeNode132,
-            treeNode133,
-            treeNode134,
-            treeNode135,
-            treeNode136,
-            treeNode137});
-            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode142 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode139,
-            treeNode140,
-            treeNode141});
-            System.Windows.Forms.TreeNode treeNode143 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode66,
+            treeNode67,
+            treeNode68,
+            treeNode69,
+            treeNode70,
+            treeNode71,
+            treeNode72});
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode74,
+            treeNode75,
+            treeNode76});
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -120,6 +120,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtArpHost = new System.Windows.Forms.TextBox();
             this.btnArpRun = new System.Windows.Forms.Button();
+            this.panelNetstat = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.chkNetstatAll = new System.Windows.Forms.CheckBox();
+            this.chkNetstatNumeric = new System.Windows.Forms.CheckBox();
+            this.btnNetstatRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -135,6 +140,7 @@
             this.paneltracert.SuspendLayout();
             this.panelTcpPort.SuspendLayout();
             this.panelArp.SuspendLayout();
+            this.panelNetstat.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -426,6 +432,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelNetstat);
             this.splitContainer1.Panel2.Controls.Add(this.panelArp);
             this.splitContainer1.Panel2.Controls.Add(this.panelTcpPort);
             this.splitContainer1.Panel2.Controls.Add(this.paneltracert);
@@ -440,36 +447,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode131.Name = "ping";
-            treeNode131.Text = "Ping";
-            treeNode132.Name = "pingSweep";
-            treeNode132.Text = "Ping Sweep";
-            treeNode133.Name = "nslookup";
-            treeNode133.Text = "nslookup";
-            treeNode134.Name = "tracert";
-            treeNode134.Text = "tracert";
-            treeNode135.Name = "tcpPort";
-            treeNode135.Text = "TCP Port";
-            treeNode136.Name = "arp";
-            treeNode136.Text = "ARP";
-            treeNode137.Name = "netstat";
-            treeNode137.Text = "Netstat";
-            treeNode138.Name = "network";
-            treeNode138.Text = "Network";
-            treeNode139.Name = "eventViewer";
-            treeNode139.Text = "Event Viewer";
-            treeNode140.Name = "services";
-            treeNode140.Text = "Services";
-            treeNode141.Name = "computerManagement";
-            treeNode141.Text = "Computer Management";
-            treeNode142.Name = "windows";
-            treeNode142.Text = "Windows";
-            treeNode143.Name = "server";
-            treeNode143.Text = "Server";
+            treeNode66.Name = "ping";
+            treeNode66.Text = "Ping";
+            treeNode67.Name = "pingSweep";
+            treeNode67.Text = "Ping Sweep";
+            treeNode68.Name = "nslookup";
+            treeNode68.Text = "nslookup";
+            treeNode69.Name = "tracert";
+            treeNode69.Text = "tracert";
+            treeNode70.Name = "tcpPort";
+            treeNode70.Text = "TCP Port";
+            treeNode71.Name = "arp";
+            treeNode71.Text = "ARP";
+            treeNode72.Name = "netstat";
+            treeNode72.Text = "Netstat";
+            treeNode73.Name = "network";
+            treeNode73.Text = "Network";
+            treeNode74.Name = "eventViewer";
+            treeNode74.Text = "Event Viewer";
+            treeNode75.Name = "services";
+            treeNode75.Text = "Services";
+            treeNode76.Name = "computerManagement";
+            treeNode76.Text = "Computer Management";
+            treeNode77.Name = "windows";
+            treeNode77.Text = "Windows";
+            treeNode78.Name = "server";
+            treeNode78.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode138,
-            treeNode142,
-            treeNode143});
+            treeNode73,
+            treeNode77,
+            treeNode78});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -850,6 +857,60 @@
             this.btnArpRun.UseVisualStyleBackColor = true;
             this.btnArpRun.Click += new System.EventHandler(this.btnArpRun_Click);
             // 
+            // panelNetstat
+            // 
+            this.panelNetstat.Controls.Add(this.btnNetstatRun);
+            this.panelNetstat.Controls.Add(this.chkNetstatNumeric);
+            this.panelNetstat.Controls.Add(this.chkNetstatAll);
+            this.panelNetstat.Controls.Add(this.label17);
+            this.panelNetstat.Location = new System.Drawing.Point(11, 81);
+            this.panelNetstat.Name = "panelNetstat";
+            this.panelNetstat.Size = new System.Drawing.Size(935, 184);
+            this.panelNetstat.TabIndex = 7;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 18);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Netstat";
+            // 
+            // chkNetstatAll
+            // 
+            this.chkNetstatAll.AutoSize = true;
+            this.chkNetstatAll.Checked = true;
+            this.chkNetstatAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNetstatAll.Location = new System.Drawing.Point(14, 41);
+            this.chkNetstatAll.Name = "chkNetstatAll";
+            this.chkNetstatAll.Size = new System.Drawing.Size(142, 22);
+            this.chkNetstatAll.TabIndex = 1;
+            this.chkNetstatAll.Text = "すべて表示(-a)";
+            this.chkNetstatAll.UseVisualStyleBackColor = true;
+            // 
+            // chkNetstatNumeric
+            // 
+            this.chkNetstatNumeric.AutoSize = true;
+            this.chkNetstatNumeric.Checked = true;
+            this.chkNetstatNumeric.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNetstatNumeric.Location = new System.Drawing.Point(14, 82);
+            this.chkNetstatNumeric.Name = "chkNetstatNumeric";
+            this.chkNetstatNumeric.Size = new System.Drawing.Size(177, 22);
+            this.chkNetstatNumeric.TabIndex = 2;
+            this.chkNetstatNumeric.Text = "名前解決しない(-n)";
+            this.chkNetstatNumeric.UseVisualStyleBackColor = true;
+            // 
+            // btnNetstatRun
+            // 
+            this.btnNetstatRun.Location = new System.Drawing.Point(14, 127);
+            this.btnNetstatRun.Name = "btnNetstatRun";
+            this.btnNetstatRun.Size = new System.Drawing.Size(100, 30);
+            this.btnNetstatRun.TabIndex = 3;
+            this.btnNetstatRun.Text = "実行";
+            this.btnNetstatRun.UseVisualStyleBackColor = true;
+            this.btnNetstatRun.Click += new System.EventHandler(this.btnNetstatRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -888,6 +949,8 @@
             this.panelTcpPort.PerformLayout();
             this.panelArp.ResumeLayout(false);
             this.panelArp.PerformLayout();
+            this.panelNetstat.ResumeLayout(false);
+            this.panelNetstat.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -963,6 +1026,11 @@
         private System.Windows.Forms.TextBox txtArpHost;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panelNetstat;
+        private System.Windows.Forms.Button btnNetstatRun;
+        private System.Windows.Forms.CheckBox chkNetstatNumeric;
+        private System.Windows.Forms.CheckBox chkNetstatAll;
+        private System.Windows.Forms.Label label17;
     }
 }
 
