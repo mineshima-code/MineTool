@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode35,
+            treeNode36,
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Server");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -126,6 +126,12 @@
             this.chkNetstatNumeric = new System.Windows.Forms.CheckBox();
             this.btnNetstatRun = new System.Windows.Forms.Button();
             this.btnNetstatStop = new System.Windows.Forms.Button();
+            this.panelEventViewer = new System.Windows.Forms.Panel();
+            this.btnEventViewerRun = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnEventViewerSystem = new System.Windows.Forms.Button();
+            this.btnEventViewerApplication = new System.Windows.Forms.Button();
+            this.btnEventViewerSecurity = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +148,7 @@
             this.panelTcpPort.SuspendLayout();
             this.panelArp.SuspendLayout();
             this.panelNetstat.SuspendLayout();
+            this.panelEventViewer.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -433,6 +440,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelEventViewer);
             this.splitContainer1.Panel2.Controls.Add(this.panelNetstat);
             this.splitContainer1.Panel2.Controls.Add(this.panelArp);
             this.splitContainer1.Panel2.Controls.Add(this.panelTcpPort);
@@ -448,36 +456,36 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode14.Name = "ping";
-            treeNode14.Text = "Ping";
-            treeNode15.Name = "pingSweep";
-            treeNode15.Text = "Ping Sweep";
-            treeNode16.Name = "nslookup";
-            treeNode16.Text = "nslookup";
-            treeNode17.Name = "tracert";
-            treeNode17.Text = "tracert";
-            treeNode18.Name = "tcpPort";
-            treeNode18.Text = "TCP Port";
-            treeNode19.Name = "arp";
-            treeNode19.Text = "ARP";
-            treeNode20.Name = "netstat";
-            treeNode20.Text = "Netstat";
-            treeNode21.Name = "network";
-            treeNode21.Text = "Network";
-            treeNode22.Name = "eventViewer";
-            treeNode22.Text = "Event Viewer";
-            treeNode23.Name = "services";
-            treeNode23.Text = "Services";
-            treeNode24.Name = "computerManagement";
-            treeNode24.Text = "Computer Management";
-            treeNode25.Name = "windows";
-            treeNode25.Text = "Windows";
-            treeNode26.Name = "server";
-            treeNode26.Text = "Server";
+            treeNode27.Name = "ping";
+            treeNode27.Text = "Ping";
+            treeNode28.Name = "pingSweep";
+            treeNode28.Text = "Ping Sweep";
+            treeNode29.Name = "nslookup";
+            treeNode29.Text = "nslookup";
+            treeNode30.Name = "tracert";
+            treeNode30.Text = "tracert";
+            treeNode31.Name = "tcpPort";
+            treeNode31.Text = "TCP Port";
+            treeNode32.Name = "arp";
+            treeNode32.Text = "ARP";
+            treeNode33.Name = "netstat";
+            treeNode33.Text = "Netstat";
+            treeNode34.Name = "network";
+            treeNode34.Text = "Network";
+            treeNode35.Name = "eventViewer";
+            treeNode35.Text = "Event Viewer";
+            treeNode36.Name = "services";
+            treeNode36.Text = "Services";
+            treeNode37.Name = "computerManagement";
+            treeNode37.Text = "Computer Management";
+            treeNode38.Name = "windows";
+            treeNode38.Text = "Windows";
+            treeNode39.Name = "server";
+            treeNode39.Text = "Server";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode25,
-            treeNode26});
+            treeNode34,
+            treeNode38,
+            treeNode39});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -923,6 +931,67 @@
             this.btnNetstatStop.UseVisualStyleBackColor = true;
             this.btnNetstatStop.Click += new System.EventHandler(this.btnNetstatStop_Click);
             // 
+            // panelEventViewer
+            // 
+            this.panelEventViewer.Controls.Add(this.btnEventViewerSecurity);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerApplication);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerSystem);
+            this.panelEventViewer.Controls.Add(this.btnEventViewerRun);
+            this.panelEventViewer.Controls.Add(this.label18);
+            this.panelEventViewer.Location = new System.Drawing.Point(10, 82);
+            this.panelEventViewer.Name = "panelEventViewer";
+            this.panelEventViewer.Size = new System.Drawing.Size(935, 184);
+            this.panelEventViewer.TabIndex = 9;
+            // 
+            // btnEventViewerRun
+            // 
+            this.btnEventViewerRun.Location = new System.Drawing.Point(13, 43);
+            this.btnEventViewerRun.Name = "btnEventViewerRun";
+            this.btnEventViewerRun.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerRun.TabIndex = 1;
+            this.btnEventViewerRun.Text = "イベントビューア";
+            this.btnEventViewerRun.UseVisualStyleBackColor = true;
+            this.btnEventViewerRun.Click += new System.EventHandler(this.btnEventViewerRun_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(10, 17);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(107, 18);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Event Viewer";
+            // 
+            // btnEventViewerSystem
+            // 
+            this.btnEventViewerSystem.Location = new System.Drawing.Point(15, 79);
+            this.btnEventViewerSystem.Name = "btnEventViewerSystem";
+            this.btnEventViewerSystem.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerSystem.TabIndex = 2;
+            this.btnEventViewerSystem.Text = "Systemログ";
+            this.btnEventViewerSystem.UseVisualStyleBackColor = true;
+            this.btnEventViewerSystem.Click += new System.EventHandler(this.btnEventViewerSystem_Click);
+            // 
+            // btnEventViewerApplication
+            // 
+            this.btnEventViewerApplication.Location = new System.Drawing.Point(15, 115);
+            this.btnEventViewerApplication.Name = "btnEventViewerApplication";
+            this.btnEventViewerApplication.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerApplication.TabIndex = 3;
+            this.btnEventViewerApplication.Text = "Applicationログ";
+            this.btnEventViewerApplication.UseVisualStyleBackColor = true;
+            this.btnEventViewerApplication.Click += new System.EventHandler(this.btnEventViewerApplication_Click);
+            // 
+            // btnEventViewerSecurity
+            // 
+            this.btnEventViewerSecurity.Location = new System.Drawing.Point(13, 151);
+            this.btnEventViewerSecurity.Name = "btnEventViewerSecurity";
+            this.btnEventViewerSecurity.Size = new System.Drawing.Size(200, 30);
+            this.btnEventViewerSecurity.TabIndex = 4;
+            this.btnEventViewerSecurity.Text = "Securityログ";
+            this.btnEventViewerSecurity.UseVisualStyleBackColor = true;
+            this.btnEventViewerSecurity.Click += new System.EventHandler(this.btnEventViewerSecurity_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -963,6 +1032,8 @@
             this.panelArp.PerformLayout();
             this.panelNetstat.ResumeLayout(false);
             this.panelNetstat.PerformLayout();
+            this.panelEventViewer.ResumeLayout(false);
+            this.panelEventViewer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1044,6 +1115,12 @@
         private System.Windows.Forms.CheckBox chkNetstatAll;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnNetstatStop;
+        private System.Windows.Forms.Panel panelEventViewer;
+        private System.Windows.Forms.Button btnEventViewerRun;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnEventViewerSecurity;
+        private System.Windows.Forms.Button btnEventViewerApplication;
+        private System.Windows.Forms.Button btnEventViewerSystem;
     }
 }
 

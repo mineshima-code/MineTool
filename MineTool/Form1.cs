@@ -194,7 +194,6 @@ namespace MineTool
             btnNslookupRun.Click += btnNslookupRun_Click;
             btnTracertRun.Click -= btnTracertRun_Click;
             btnTracertRun.Click += btnTracertRun_Click;
-
             btnTracertStop.Click -= btnTracertStop_Click;
             btnTracertStop.Click += btnTracertStop_Click;
             btnTcpPortRun.Click -= btnTcpPortRun_Click;
@@ -203,6 +202,14 @@ namespace MineTool
             btnArpRun.Click += btnArpRun_Click;
             btnNetstatRun.Click -= btnNetstatRun_Click;
             btnNetstatRun.Click += btnNetstatRun_Click;
+            btnEventViewerRun.Click -= btnEventViewerRun_Click;
+            btnEventViewerRun.Click += btnEventViewerRun_Click;
+            btnEventViewerSystem.Click -= btnEventViewerSystem_Click;
+            btnEventViewerSystem.Click += btnEventViewerSystem_Click;
+            btnEventViewerApplication.Click -= btnEventViewerApplication_Click;
+            btnEventViewerApplication.Click += btnEventViewerApplication_Click;
+            btnEventViewerSecurity.Click -= btnEventViewerSecurity_Click;
+            btnEventViewerSecurity.Click += btnEventViewerSecurity_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -451,6 +458,9 @@ namespace MineTool
                 case "Netstat":
                     ShowPanel(panelNetstat, "Netstat");
                     break;
+                case "Event Viewer":
+                    ShowPanel(panelEventViewer, "Event Viewer");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -470,6 +480,7 @@ namespace MineTool
             panelTcpPort.Visible = false;
             panelArp.Visible = false;
             panelNetstat.Visible = false;
+            panelEventViewer.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -777,5 +788,49 @@ namespace MineTool
                 AddLog("netstatを停止しました。");
             }
         }
+
+        private void btnEventViewerRun_Click(object sender, EventArgs e)
+        {
+            Process.Start("eventvwr.exe");
+            AddLog("イベントビューアを起動しました。");
+        }
+
+        private void btnEventViewerSystem_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "eventvwr.exe",
+                Arguments = "/c:System",
+                UseShellExecute = true
+            });
+
+            AddLog("Systemログを開きました。");
+        }
+
+        private void btnEventViewerApplication_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "eventvwr.exe",
+                Arguments = "/c:Application",
+                UseShellExecute = true
+            });
+
+            AddLog("Applicationログを開きました。");
+        }
+
+        private void btnEventViewerSecurity_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "eventvwr.exe",
+                Arguments = "/c:Security",
+                UseShellExecute = true
+            });
+
+            AddLog("Securityログを開きました。");
+        }
     }
 }
+
+
