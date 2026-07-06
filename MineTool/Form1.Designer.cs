@@ -28,38 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Ping");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Ping Sweep");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("nslookup");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("tracert");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("TCP Port");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("ARP");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Netstat");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
-            treeNode55,
-            treeNode56,
-            treeNode57,
-            treeNode58,
-            treeNode59,
-            treeNode60,
-            treeNode61});
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Event Viewer");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Services");
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Computer Management");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Device Manager");
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Disk Management");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Local Users");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode63,
-            treeNode64,
-            treeNode65,
-            treeNode66,
-            treeNode67,
-            treeNode68});
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Remote Desktop");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Remote", new System.Windows.Forms.TreeNode[] {
-            treeNode70});
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ping");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ping Sweep");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("nslookup");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("tracert");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("TCP Port");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ARP");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Netstat");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Network", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Event Viewer");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Services");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Computer Management");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Device Manager");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Disk Management");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Local Users");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Remote Desktop");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Remote", new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Server");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Port Scanner");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Password Hash Utility");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Mine Tool", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtHost = new System.Windows.Forms.TextBox();
@@ -86,6 +92,17 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.panelRemoteDesktop = new System.Windows.Forms.Panel();
+            this.btnRemoteDesktopRun = new System.Windows.Forms.Button();
+            this.txtRemoteDesktopHost = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panelLocalUsers = new System.Windows.Forms.Panel();
+            this.btnLocalUsersRun = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panelDiskManagement = new System.Windows.Forms.Panel();
+            this.btnDiskManagementRun = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             this.panelDeviceManager = new System.Windows.Forms.Panel();
             this.btnDeviceManagerRun = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -147,17 +164,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.panelDiskManagement = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.btnDiskManagementRun = new System.Windows.Forms.Button();
-            this.panelLocalUsers = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnLocalUsersRun = new System.Windows.Forms.Button();
-            this.panelRemoteDesktop = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtRemoteDesktopHost = new System.Windows.Forms.TextBox();
-            this.btnRemoteDesktopRun = new System.Windows.Forms.Button();
+            this.panelPortScanner = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtPortScannerHost = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtPortScannerStartPort = new System.Windows.Forms.TextBox();
+            this.txtPortScannerEndPort = new System.Windows.Forms.TextBox();
+            this.btnPortScannerRun = new System.Windows.Forms.Button();
+            this.btnPortScannerStop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -166,6 +182,9 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelRemoteDesktop.SuspendLayout();
+            this.panelLocalUsers.SuspendLayout();
+            this.panelDiskManagement.SuspendLayout();
             this.panelDeviceManager.SuspendLayout();
             this.panelComputerManagement.SuspendLayout();
             this.panelServices.SuspendLayout();
@@ -178,9 +197,7 @@
             this.panelPing.SuspendLayout();
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
-            this.panelDiskManagement.SuspendLayout();
-            this.panelLocalUsers.SuspendLayout();
-            this.panelRemoteDesktop.SuspendLayout();
+            this.panelPortScanner.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -442,6 +459,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelPortScanner);
             this.splitContainer1.Panel2.Controls.Add(this.panelRemoteDesktop);
             this.splitContainer1.Panel2.Controls.Add(this.panelLocalUsers);
             this.splitContainer1.Panel2.Controls.Add(this.panelDiskManagement);
@@ -464,50 +482,160 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 13);
             this.treeView1.Name = "treeView1";
-            treeNode55.Name = "ping";
-            treeNode55.Text = "Ping";
-            treeNode56.Name = "pingSweep";
-            treeNode56.Text = "Ping Sweep";
-            treeNode57.Name = "nslookup";
-            treeNode57.Text = "nslookup";
-            treeNode58.Name = "tracert";
-            treeNode58.Text = "tracert";
-            treeNode59.Name = "tcpPort";
-            treeNode59.Text = "TCP Port";
-            treeNode60.Name = "arp";
-            treeNode60.Text = "ARP";
-            treeNode61.Name = "netstat";
-            treeNode61.Text = "Netstat";
-            treeNode62.Name = "network";
-            treeNode62.Text = "Network";
-            treeNode63.Name = "eventViewer";
-            treeNode63.Text = "Event Viewer";
-            treeNode64.Name = "services";
-            treeNode64.Text = "Services";
-            treeNode65.Name = "computerManagement";
-            treeNode65.Text = "Computer Management";
-            treeNode66.Name = "DeviceManager";
-            treeNode66.Text = "Device Manager";
-            treeNode67.Name = "DiskManagement";
-            treeNode67.Text = "Disk Management";
-            treeNode68.Name = "LocalUsers";
-            treeNode68.Text = "Local Users";
-            treeNode69.Name = "windows";
-            treeNode69.Text = "Windows";
-            treeNode70.Name = "RemoteDesktop";
-            treeNode70.Text = "Remote Desktop";
-            treeNode71.Name = "Remote";
-            treeNode71.Text = "Remote";
-            treeNode72.Name = "server";
-            treeNode72.Text = "Server";
+            treeNode1.Name = "ping";
+            treeNode1.Text = "Ping";
+            treeNode2.Name = "pingSweep";
+            treeNode2.Text = "Ping Sweep";
+            treeNode3.Name = "nslookup";
+            treeNode3.Text = "nslookup";
+            treeNode4.Name = "tracert";
+            treeNode4.Text = "tracert";
+            treeNode5.Name = "tcpPort";
+            treeNode5.Text = "TCP Port";
+            treeNode6.Name = "arp";
+            treeNode6.Text = "ARP";
+            treeNode7.Name = "netstat";
+            treeNode7.Text = "Netstat";
+            treeNode8.Name = "network";
+            treeNode8.Text = "Network";
+            treeNode9.Name = "eventViewer";
+            treeNode9.Text = "Event Viewer";
+            treeNode10.Name = "services";
+            treeNode10.Text = "Services";
+            treeNode11.Name = "computerManagement";
+            treeNode11.Text = "Computer Management";
+            treeNode12.Name = "DeviceManager";
+            treeNode12.Text = "Device Manager";
+            treeNode13.Name = "DiskManagement";
+            treeNode13.Text = "Disk Management";
+            treeNode14.Name = "LocalUsers";
+            treeNode14.Text = "Local Users";
+            treeNode15.Name = "windows";
+            treeNode15.Text = "Windows";
+            treeNode16.Name = "RemoteDesktop";
+            treeNode16.Text = "Remote Desktop";
+            treeNode17.Name = "Remote";
+            treeNode17.Text = "Remote";
+            treeNode18.Name = "server";
+            treeNode18.Text = "Server";
+            treeNode19.Name = "PortScanner";
+            treeNode19.Text = "Port Scanner";
+            treeNode20.Name = "PasswordHashUtility";
+            treeNode20.Text = "Password Hash Utility";
+            treeNode21.Name = "MineTool";
+            treeNode21.Text = "Mine Tool";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode62,
-            treeNode69,
-            treeNode71,
-            treeNode72});
+            treeNode8,
+            treeNode15,
+            treeNode17,
+            treeNode18,
+            treeNode21});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // panelRemoteDesktop
+            // 
+            this.panelRemoteDesktop.Controls.Add(this.btnRemoteDesktopRun);
+            this.panelRemoteDesktop.Controls.Add(this.txtRemoteDesktopHost);
+            this.panelRemoteDesktop.Controls.Add(this.label25);
+            this.panelRemoteDesktop.Controls.Add(this.label24);
+            this.panelRemoteDesktop.Location = new System.Drawing.Point(11, 80);
+            this.panelRemoteDesktop.Name = "panelRemoteDesktop";
+            this.panelRemoteDesktop.Size = new System.Drawing.Size(935, 184);
+            this.panelRemoteDesktop.TabIndex = 15;
+            // 
+            // btnRemoteDesktopRun
+            // 
+            this.btnRemoteDesktopRun.Location = new System.Drawing.Point(15, 117);
+            this.btnRemoteDesktopRun.Name = "btnRemoteDesktopRun";
+            this.btnRemoteDesktopRun.Size = new System.Drawing.Size(150, 30);
+            this.btnRemoteDesktopRun.TabIndex = 3;
+            this.btnRemoteDesktopRun.Text = "RDP接続";
+            this.btnRemoteDesktopRun.UseVisualStyleBackColor = true;
+            this.btnRemoteDesktopRun.Click += new System.EventHandler(this.btnRemoteDesktopRun_Click);
+            // 
+            // txtRemoteDesktopHost
+            // 
+            this.txtRemoteDesktopHost.Location = new System.Drawing.Point(15, 75);
+            this.txtRemoteDesktopHost.Name = "txtRemoteDesktopHost";
+            this.txtRemoteDesktopHost.Size = new System.Drawing.Size(180, 25);
+            this.txtRemoteDesktopHost.TabIndex = 2;
+            this.txtRemoteDesktopHost.Text = "192.168.1.1";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(14, 48);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 18);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "接続先";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 10);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(131, 18);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Remote Desktop";
+            // 
+            // panelLocalUsers
+            // 
+            this.panelLocalUsers.Controls.Add(this.btnLocalUsersRun);
+            this.panelLocalUsers.Controls.Add(this.label23);
+            this.panelLocalUsers.Location = new System.Drawing.Point(10, 82);
+            this.panelLocalUsers.Name = "panelLocalUsers";
+            this.panelLocalUsers.Size = new System.Drawing.Size(935, 184);
+            this.panelLocalUsers.TabIndex = 14;
+            // 
+            // btnLocalUsersRun
+            // 
+            this.btnLocalUsersRun.Location = new System.Drawing.Point(16, 39);
+            this.btnLocalUsersRun.Name = "btnLocalUsersRun";
+            this.btnLocalUsersRun.Size = new System.Drawing.Size(300, 30);
+            this.btnLocalUsersRun.TabIndex = 1;
+            this.btnLocalUsersRun.Text = "ローカルユーザーとグループを開く";
+            this.btnLocalUsersRun.UseVisualStyleBackColor = true;
+            this.btnLocalUsersRun.Click += new System.EventHandler(this.btnLocalUsersRun_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(9, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 18);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Local Users";
+            // 
+            // panelDiskManagement
+            // 
+            this.panelDiskManagement.Controls.Add(this.btnDiskManagementRun);
+            this.panelDiskManagement.Controls.Add(this.label22);
+            this.panelDiskManagement.Location = new System.Drawing.Point(11, 82);
+            this.panelDiskManagement.Name = "panelDiskManagement";
+            this.panelDiskManagement.Size = new System.Drawing.Size(935, 184);
+            this.panelDiskManagement.TabIndex = 13;
+            // 
+            // btnDiskManagementRun
+            // 
+            this.btnDiskManagementRun.Location = new System.Drawing.Point(13, 39);
+            this.btnDiskManagementRun.Name = "btnDiskManagementRun";
+            this.btnDiskManagementRun.Size = new System.Drawing.Size(226, 30);
+            this.btnDiskManagementRun.TabIndex = 1;
+            this.btnDiskManagementRun.Text = "ディスクの管理を開く";
+            this.btnDiskManagementRun.UseVisualStyleBackColor = true;
+            this.btnDiskManagementRun.Click += new System.EventHandler(this.btnDiskManagementRun_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(11, 10);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(139, 18);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Disk Management";
             // 
             // panelDeviceManager
             // 
@@ -866,7 +994,7 @@
             this.txtTracertHost.Name = "txtTracertHost";
             this.txtTracertHost.Size = new System.Drawing.Size(180, 25);
             this.txtTracertHost.TabIndex = 2;
-            this.txtTracertHost.Text = "8.8.8.8";
+            this.txtTracertHost.Text = "192.168.1.1";
             // 
             // label11
             // 
@@ -1095,108 +1223,99 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ここに画面タイトル";
             // 
-            // panelDiskManagement
+            // panelPortScanner
             // 
-            this.panelDiskManagement.Controls.Add(this.btnDiskManagementRun);
-            this.panelDiskManagement.Controls.Add(this.label22);
-            this.panelDiskManagement.Location = new System.Drawing.Point(11, 82);
-            this.panelDiskManagement.Name = "panelDiskManagement";
-            this.panelDiskManagement.Size = new System.Drawing.Size(935, 184);
-            this.panelDiskManagement.TabIndex = 13;
+            this.panelPortScanner.Controls.Add(this.btnPortScannerStop);
+            this.panelPortScanner.Controls.Add(this.btnPortScannerRun);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerEndPort);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerStartPort);
+            this.panelPortScanner.Controls.Add(this.label29);
+            this.panelPortScanner.Controls.Add(this.label28);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerHost);
+            this.panelPortScanner.Controls.Add(this.label27);
+            this.panelPortScanner.Controls.Add(this.label26);
+            this.panelPortScanner.Location = new System.Drawing.Point(10, 79);
+            this.panelPortScanner.Name = "panelPortScanner";
+            this.panelPortScanner.Size = new System.Drawing.Size(935, 184);
+            this.panelPortScanner.TabIndex = 16;
             // 
-            // label22
+            // label26
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(11, 10);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(139, 18);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Disk Management";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(107, 18);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Port Scanner";
             // 
-            // btnDiskManagementRun
+            // label27
             // 
-            this.btnDiskManagementRun.Location = new System.Drawing.Point(13, 39);
-            this.btnDiskManagementRun.Name = "btnDiskManagementRun";
-            this.btnDiskManagementRun.Size = new System.Drawing.Size(226, 30);
-            this.btnDiskManagementRun.TabIndex = 1;
-            this.btnDiskManagementRun.Text = "ディスクの管理を開く";
-            this.btnDiskManagementRun.UseVisualStyleBackColor = true;
-            this.btnDiskManagementRun.Click += new System.EventHandler(this.btnDiskManagementRun_Click);
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 36);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(67, 18);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Host/IP";
             // 
-            // panelLocalUsers
+            // txtPortScannerHost
             // 
-            this.panelLocalUsers.Controls.Add(this.btnLocalUsersRun);
-            this.panelLocalUsers.Controls.Add(this.label23);
-            this.panelLocalUsers.Location = new System.Drawing.Point(10, 82);
-            this.panelLocalUsers.Name = "panelLocalUsers";
-            this.panelLocalUsers.Size = new System.Drawing.Size(935, 184);
-            this.panelLocalUsers.TabIndex = 14;
+            this.txtPortScannerHost.Location = new System.Drawing.Point(16, 57);
+            this.txtPortScannerHost.Name = "txtPortScannerHost";
+            this.txtPortScannerHost.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerHost.TabIndex = 2;
+            this.txtPortScannerHost.Text = "192.168.1.1";
             // 
-            // label23
+            // label28
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(9, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 18);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Local Users";
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(202, 87);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(87, 18);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "終了ポート";
             // 
-            // btnLocalUsersRun
+            // label29
             // 
-            this.btnLocalUsersRun.Location = new System.Drawing.Point(16, 39);
-            this.btnLocalUsersRun.Name = "btnLocalUsersRun";
-            this.btnLocalUsersRun.Size = new System.Drawing.Size(300, 30);
-            this.btnLocalUsersRun.TabIndex = 1;
-            this.btnLocalUsersRun.Text = "ローカルユーザーとグループを開く";
-            this.btnLocalUsersRun.UseVisualStyleBackColor = true;
-            this.btnLocalUsersRun.Click += new System.EventHandler(this.btnLocalUsersRun_Click);
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 88);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(87, 18);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "開始ポート";
             // 
-            // panelRemoteDesktop
+            // txtPortScannerStartPort
             // 
-            this.panelRemoteDesktop.Controls.Add(this.btnRemoteDesktopRun);
-            this.panelRemoteDesktop.Controls.Add(this.txtRemoteDesktopHost);
-            this.panelRemoteDesktop.Controls.Add(this.label25);
-            this.panelRemoteDesktop.Controls.Add(this.label24);
-            this.panelRemoteDesktop.Location = new System.Drawing.Point(11, 80);
-            this.panelRemoteDesktop.Name = "panelRemoteDesktop";
-            this.panelRemoteDesktop.Size = new System.Drawing.Size(935, 184);
-            this.panelRemoteDesktop.TabIndex = 15;
+            this.txtPortScannerStartPort.Location = new System.Drawing.Point(19, 109);
+            this.txtPortScannerStartPort.Name = "txtPortScannerStartPort";
+            this.txtPortScannerStartPort.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerStartPort.TabIndex = 5;
+            this.txtPortScannerStartPort.Text = "1";
             // 
-            // label24
+            // txtPortScannerEndPort
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(10, 10);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(131, 18);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Remote Desktop";
+            this.txtPortScannerEndPort.Location = new System.Drawing.Point(205, 109);
+            this.txtPortScannerEndPort.Name = "txtPortScannerEndPort";
+            this.txtPortScannerEndPort.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerEndPort.TabIndex = 6;
+            this.txtPortScannerEndPort.Text = "1024";
             // 
-            // label25
+            // btnPortScannerRun
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(14, 48);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(62, 18);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "接続先";
+            this.btnPortScannerRun.Location = new System.Drawing.Point(19, 148);
+            this.btnPortScannerRun.Name = "btnPortScannerRun";
+            this.btnPortScannerRun.Size = new System.Drawing.Size(150, 30);
+            this.btnPortScannerRun.TabIndex = 7;
+            this.btnPortScannerRun.Text = "スキャン開始";
+            this.btnPortScannerRun.UseVisualStyleBackColor = true;
             // 
-            // txtRemoteDesktopHost
+            // btnPortScannerStop
             // 
-            this.txtRemoteDesktopHost.Location = new System.Drawing.Point(15, 75);
-            this.txtRemoteDesktopHost.Name = "txtRemoteDesktopHost";
-            this.txtRemoteDesktopHost.Size = new System.Drawing.Size(180, 25);
-            this.txtRemoteDesktopHost.TabIndex = 2;
-            this.txtRemoteDesktopHost.Text = "192.168.1.1";
-            // 
-            // btnRemoteDesktopRun
-            // 
-            this.btnRemoteDesktopRun.Location = new System.Drawing.Point(15, 117);
-            this.btnRemoteDesktopRun.Name = "btnRemoteDesktopRun";
-            this.btnRemoteDesktopRun.Size = new System.Drawing.Size(150, 30);
-            this.btnRemoteDesktopRun.TabIndex = 3;
-            this.btnRemoteDesktopRun.Text = "RDP接続";
-            this.btnRemoteDesktopRun.UseVisualStyleBackColor = true;
-            this.btnRemoteDesktopRun.Click += new System.EventHandler(this.btnRemoteDesktopRun_Click);
+            this.btnPortScannerStop.Location = new System.Drawing.Point(175, 148);
+            this.btnPortScannerStop.Name = "btnPortScannerStop";
+            this.btnPortScannerStop.Size = new System.Drawing.Size(150, 30);
+            this.btnPortScannerStop.TabIndex = 8;
+            this.btnPortScannerStop.Text = "停止";
+            this.btnPortScannerStop.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1206,8 +1325,9 @@
             this.ClientSize = new System.Drawing.Size(1178, 644);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "MineTool v1.0";
+            this.Text = "MineTool v1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1220,6 +1340,12 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelRemoteDesktop.ResumeLayout(false);
+            this.panelRemoteDesktop.PerformLayout();
+            this.panelLocalUsers.ResumeLayout(false);
+            this.panelLocalUsers.PerformLayout();
+            this.panelDiskManagement.ResumeLayout(false);
+            this.panelDiskManagement.PerformLayout();
             this.panelDeviceManager.ResumeLayout(false);
             this.panelDeviceManager.PerformLayout();
             this.panelComputerManagement.ResumeLayout(false);
@@ -1243,12 +1369,8 @@
             this.panelPingSweep.PerformLayout();
             this.panelNslookup.ResumeLayout(false);
             this.panelNslookup.PerformLayout();
-            this.panelDiskManagement.ResumeLayout(false);
-            this.panelDiskManagement.PerformLayout();
-            this.panelLocalUsers.ResumeLayout(false);
-            this.panelLocalUsers.PerformLayout();
-            this.panelRemoteDesktop.ResumeLayout(false);
-            this.panelRemoteDesktop.PerformLayout();
+            this.panelPortScanner.ResumeLayout(false);
+            this.panelPortScanner.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1353,6 +1475,16 @@
         private System.Windows.Forms.TextBox txtRemoteDesktopHost;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Panel panelPortScanner;
+        private System.Windows.Forms.TextBox txtPortScannerHost;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtPortScannerEndPort;
+        private System.Windows.Forms.TextBox txtPortScannerStartPort;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button btnPortScannerStop;
+        private System.Windows.Forms.Button btnPortScannerRun;
     }
 }
 

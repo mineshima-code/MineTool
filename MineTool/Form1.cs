@@ -17,6 +17,7 @@ namespace MineTool
     public partial class Form1 : Form
     {
         private Process currentProcess;
+        private bool stopPortScanner = false;
         private bool stopPingSweep = false;
         private Dictionary<int, string> serviceNames = new Dictionary<int, string>()
 {
@@ -190,6 +191,14 @@ namespace MineTool
             textBox1.Height = 250;
             textBox1.Multiline = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
+            btnPingRun.Click -= btnPingRun_Click;
+            btnPingRun.Click += btnPingRun_Click;
+            btnPingStop.Click -= btnPingStop_Click;
+            btnPingStop.Click += btnPingStop_Click;
+            btnPingSweepRun.Click -= btnPingSweepRun_Click;
+            btnPingSweepRun.Click += btnPingSweepRun_Click;
+            btnPingSweepStop.Click -= btnPingSweepStop_Click;
+            btnPingSweepStop.Click += btnPingSweepStop_Click;
             btnNslookupRun.Click -= btnNslookupRun_Click;
             btnNslookupRun.Click += btnNslookupRun_Click;
             btnTracertRun.Click -= btnTracertRun_Click;
@@ -222,6 +231,10 @@ namespace MineTool
             btnLocalUsersRun.Click += btnLocalUsersRun_Click;
             btnRemoteDesktopRun.Click -= btnRemoteDesktopRun_Click;
             btnRemoteDesktopRun.Click += btnRemoteDesktopRun_Click;
+            btnPortScannerRun.Click -= btnPortScannerRun_Click;
+            btnPortScannerRun.Click += btnPortScannerRun_Click;
+            btnPortScannerStop.Click -= btnPortScannerStop_Click;
+            btnPortScannerStop.Click += btnPortScannerStop_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -491,6 +504,9 @@ namespace MineTool
                 case "Remote Desktop":
                     ShowPanel(panelRemoteDesktop, "Remote Desktop");
                     break;
+                case "Port Scanner":
+                    ShowPanel(panelPortScanner, "Port Scanner");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -517,6 +533,7 @@ namespace MineTool
             panelDiskManagement.Visible = false;
             panelLocalUsers.Visible = false;
             panelRemoteDesktop.Visible = false;
+            panelPortScanner.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -568,8 +585,11 @@ namespace MineTool
 
         private void btnPingStop_Click(object sender, EventArgs e)
         {
-            currentProcess.Kill();
-            AddLog("Pingを停止しました。");
+            if (currentProcess != null && !currentProcess.HasExited)
+            {
+                currentProcess.Kill();
+                AddLog("Pingを停止しました。");
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -913,6 +933,16 @@ namespace MineTool
             Process.Start("mstsc.exe", "/v:" + host);
 
             AddLog("リモートデスクトップ接続を起動しました: " + host);
+        }
+        private async void btnPortScannerRun_Click(object sender, EventArgs e)
+        {
+            AddLog("Port Scanner開始");
+        }
+
+        private void btnPortScannerStop_Click(object sender, EventArgs e)
+        {
+            stopPortScanner = true;
+            AddLog("Port Scanner停止要求");
         }
     }
 }
