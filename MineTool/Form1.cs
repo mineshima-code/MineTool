@@ -19,6 +19,18 @@ namespace MineTool
         private Process currentProcess;
         private bool stopPortScanner = false;
         private bool stopPingSweep = false;
+        private Dictionary<int, string> riskyPorts = new Dictionary<int, string>()
+{
+    {21, "FTP: 平文認証の可能性があります。"},
+    {23, "Telnet: 通信が暗号化されません。"},
+    {445, "SMB: 外部公開は特に注意が必要です。"},
+    {3389, "RDP: 総当たり攻撃の対象になりやすいです。"},
+    {3306, "MySQL: 外部公開に注意してください。"},
+    {5432, "PostgreSQL: 外部公開に注意してください。"},
+    {5900, "VNC: 認証設定に注意してください。"},
+    {6379, "Redis: 認証なし公開は危険です。"},
+    {9200, "Elasticsearch: 外部公開に注意してください。"}
+};
         private Dictionary<int, string> serviceNames = new Dictionary<int, string>()
 {
     {21, "FTP"},
@@ -936,13 +948,83 @@ namespace MineTool
         }
         private async void btnPortScannerRun_Click(object sender, EventArgs e)
         {
-            AddLog("Port Scanner開始");
+            string host = txtPortScannerHost.Text.Trim();
+            string startText = txtPortScannerStartPort.Text.Trim();
+            string endText = txtPortScannerEndPort.Text.Trim();
+
+            if (host == "")
+            {
+                AddLog("Host/IPを入力してください。");
+                return;
+            }
+
+            if (!int.TryParse(startText, out int startPort) ||
+                !int.TryParse(endText, out int endPort))
+            {
+                AddLog("開始ポートまたは終了ポートを正しく入力してください。");
+                return;
+            }
+
+            if (startPort < 1 || endPort > 65535 || startPort > endPort)
+            {
+                AddLog("ポート範囲は 1 ～ 65535 で指定してください。");
+                return;
+            }
+
+            textBox1.Clear();
+            stopPortScanner = false;
+
+            AddLog($"Port Scanner開始: {host} {startPort}～{endPort}");
+
+            for (int port = startPort; port <= endPort; port++)
+            {
+                if (stopPortScanner)
+                {
+                    AddLog("Port Scannerを停止しました。");
+                    break;
+                }
+
+                await ScanPort(host, port, 300);
+            }
+
+            AddLog("Port Scanner完了");
         }
 
         private void btnPortScannerStop_Click(object sender, EventArgs e)
         {
             stopPortScanner = true;
             AddLog("Port Scanner停止要求");
+        }
+        private async Task ScanPort(string host, int port, int timeout)
+        {
+            try
+            {
+                using (TcpClient client = new TcpClient())
+                {
+                    Task connectTask = client.ConnectAsync(host, port);
+                    Task timeoutTask = Task.Delay(timeout);
+
+                    Task finishedTask = await Task.WhenAny(connectTask, timeoutTask);
+
+                    if (finishedTask == connectTask && client.Connected)
+                    {
+                        string service = serviceNames.ContainsKey(port)
+                            ? serviceNames[port]
+                            : "Unknown";
+
+                        AddLog($"OPEN : {port} ({service})");
+
+                        if (riskyPorts.ContainsKey(port))
+                        {
+                            AddLog($"  注意: {riskyPorts[port]}");
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // CLOSED/応答なしは表示しない
+            }
         }
     }
 }
