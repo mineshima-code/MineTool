@@ -210,6 +210,8 @@ namespace MineTool
             btnEventViewerApplication.Click += btnEventViewerApplication_Click;
             btnEventViewerSecurity.Click -= btnEventViewerSecurity_Click;
             btnEventViewerSecurity.Click += btnEventViewerSecurity_Click;
+            btnServicesRun.Click -= btnServicesRun_Click;
+            btnServicesRun.Click += btnServicesRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -461,6 +463,9 @@ namespace MineTool
                 case "Event Viewer":
                     ShowPanel(panelEventViewer, "Event Viewer");
                     break;
+                case "Services":
+                    ShowPanel(panelServices, "Services");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -481,6 +486,7 @@ namespace MineTool
             panelArp.Visible = false;
             panelNetstat.Visible = false;
             panelEventViewer.Visible = false;
+            panelServices.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -829,6 +835,12 @@ namespace MineTool
             });
 
             AddLog("Securityログを開きました。");
+        }
+
+        private void btnServicesRun_Click(object sender, EventArgs e)
+        {
+            Process.Start("services.msc");
+            AddLog("サービスを起動しました。");
         }
     }
 }

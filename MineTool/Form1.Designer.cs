@@ -132,6 +132,9 @@
             this.btnEventViewerSystem = new System.Windows.Forms.Button();
             this.btnEventViewerApplication = new System.Windows.Forms.Button();
             this.btnEventViewerSecurity = new System.Windows.Forms.Button();
+            this.panelServices = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnServicesRun = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -149,6 +152,7 @@
             this.panelArp.SuspendLayout();
             this.panelNetstat.SuspendLayout();
             this.panelEventViewer.SuspendLayout();
+            this.panelServices.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -440,6 +444,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelServices);
             this.splitContainer1.Panel2.Controls.Add(this.panelEventViewer);
             this.splitContainer1.Panel2.Controls.Add(this.panelNetstat);
             this.splitContainer1.Panel2.Controls.Add(this.panelArp);
@@ -992,6 +997,34 @@
             this.btnEventViewerSecurity.UseVisualStyleBackColor = true;
             this.btnEventViewerSecurity.Click += new System.EventHandler(this.btnEventViewerSecurity_Click);
             // 
+            // panelServices
+            // 
+            this.panelServices.Controls.Add(this.btnServicesRun);
+            this.panelServices.Controls.Add(this.label19);
+            this.panelServices.Location = new System.Drawing.Point(10, 80);
+            this.panelServices.Name = "panelServices";
+            this.panelServices.Size = new System.Drawing.Size(935, 184);
+            this.panelServices.TabIndex = 10;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(11, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 18);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Services";
+            // 
+            // btnServicesRun
+            // 
+            this.btnServicesRun.Location = new System.Drawing.Point(14, 41);
+            this.btnServicesRun.Name = "btnServicesRun";
+            this.btnServicesRun.Size = new System.Drawing.Size(200, 30);
+            this.btnServicesRun.TabIndex = 1;
+            this.btnServicesRun.Text = "サービスを開く";
+            this.btnServicesRun.UseVisualStyleBackColor = true;
+            this.btnServicesRun.Click += new System.EventHandler(this.btnServicesRun_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1034,6 +1067,8 @@
             this.panelNetstat.PerformLayout();
             this.panelEventViewer.ResumeLayout(false);
             this.panelEventViewer.PerformLayout();
+            this.panelServices.ResumeLayout(false);
+            this.panelServices.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1121,6 +1156,9 @@
         private System.Windows.Forms.Button btnEventViewerSecurity;
         private System.Windows.Forms.Button btnEventViewerApplication;
         private System.Windows.Forms.Button btnEventViewerSystem;
+        private System.Windows.Forms.Panel panelServices;
+        private System.Windows.Forms.Button btnServicesRun;
+        private System.Windows.Forms.Label label19;
     }
 }
 
