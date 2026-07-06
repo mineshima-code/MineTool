@@ -199,6 +199,8 @@ namespace MineTool
             btnTracertStop.Click += btnTracertStop_Click;
             btnTcpPortRun.Click -= btnTcpPortRun_Click;
             btnTcpPortRun.Click += btnTcpPortRun_Click;
+            btnArpRun.Click -= btnArpRun_Click;
+            btnArpRun.Click += btnArpRun_Click;
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -441,6 +443,9 @@ namespace MineTool
                 case "TCP Port":
                     ShowPanel(panelTcpPort, "TCP Port");
                     break;
+                case "ARP":
+                    ShowPanel(panelArp, "ARP");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -458,6 +463,8 @@ namespace MineTool
             panelNslookup.Visible = false;
             paneltracert.Visible = false;
             panelTcpPort.Visible = false;
+            panelArp.Visible = false;
+
         }
         private void ShowPanel(Panel panel, string title)
         {
@@ -697,6 +704,22 @@ namespace MineTool
                 AddLog($"TCPポート確認開始: {host}:{port}");
                 await CheckTcpPort(host, port);
                 AddLog("TCPポート確認完了");
+            }
+        }
+
+        private void btnArpRun_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+
+            if (string.IsNullOrWhiteSpace(txtArpHost.Text))
+            {
+                AddLog("ARPテーブル取得");
+                RunCommand("arp.exe", "-a");
+            }
+            else
+            {
+                AddLog("ARP取得 : " + txtArpHost.Text);
+                RunCommand("arp.exe", "-a " + txtArpHost.Text.Trim());
             }
         }
     }
