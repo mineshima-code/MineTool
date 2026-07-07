@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Net.Sockets;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MineTool
 {
@@ -19,17 +20,65 @@ namespace MineTool
         private Process currentProcess;
         private bool stopPortScanner = false;
         private bool stopPingSweep = false;
-        private Dictionary<int, string> riskyPorts = new Dictionary<int, string>()
+        private class PortRiskInfo
+        {
+            public string Service { get; set; }
+            public string Severity { get; set; }
+            public string Message { get; set; }
+
+            public PortRiskInfo(string service, string severity, string message)
+            {
+                Service = service;
+                Severity = severity;
+                Message = message;
+            }
+        }
+        private Dictionary<int, PortRiskInfo> riskyPorts = new Dictionary<int, PortRiskInfo>()
 {
-    {21, "FTP: 平文認証の可能性があります。"},
-    {23, "Telnet: 通信が暗号化されません。"},
-    {445, "SMB: 外部公開は特に注意が必要です。"},
-    {3389, "RDP: 総当たり攻撃の対象になりやすいです。"},
-    {3306, "MySQL: 外部公開に注意してください。"},
-    {5432, "PostgreSQL: 外部公開に注意してください。"},
-    {5900, "VNC: 認証設定に注意してください。"},
-    {6379, "Redis: 認証なし公開は危険です。"},
-    {9200, "Elasticsearch: 外部公開に注意してください。"}
+    {21,   new PortRiskInfo("FTP", "★★★☆☆ MEDIUM",
+        "平文で認証情報が送信されます。SFTPの利用を推奨します。")},
+
+    {23,   new PortRiskInfo("Telnet", "★★★★★ HIGH",
+        "通信が暗号化されません。SSHへ移行してください。")},
+
+    {25,   new PortRiskInfo("SMTP", "★★☆☆☆ LOW",
+        "メールサーバ以外で公開する必要は通常ありません。")},
+
+    {53,   new PortRiskInfo("DNS", "★☆☆☆☆ INFO",
+        "DNSサービスです。公開用途以外では不要な場合があります。")},
+
+    {80,   new PortRiskInfo("HTTP", "★★☆☆☆ LOW",
+        "HTTPは暗号化されません。HTTPSを推奨します。")},
+
+    {110,  new PortRiskInfo("POP3", "★★★☆☆ MEDIUM",
+        "POP3は平文通信となる場合があります。")},
+
+    {143,  new PortRiskInfo("IMAP", "★★★☆☆ MEDIUM",
+        "暗号化(IMAPS)を利用してください。")},
+
+    {443,  new PortRiskInfo("HTTPS", "★☆☆☆☆ SAFE",
+        "HTTPSサービスです。証明書管理を適切に行ってください。")},
+
+    {445,  new PortRiskInfo("SMB", "★★★★★ HIGH",
+        "ランサムウェアで悪用されることがあります。インターネット公開は避けてください。")},
+
+    {3306, new PortRiskInfo("MySQL", "★★★★☆ HIGH",
+        "データベースを直接公開することは推奨されません。")},
+
+    {3389, new PortRiskInfo("RDP", "★★★★★ HIGH",
+        "総当たり攻撃の対象になりやすいです。VPN経由を推奨します。")},
+
+    {5432, new PortRiskInfo("PostgreSQL", "★★★★☆ HIGH",
+        "データベースを直接公開しないでください。")},
+
+    {5900, new PortRiskInfo("VNC", "★★★★☆ HIGH",
+        "認証設定を確認してください。公開は非推奨です。")},
+
+    {6379, new PortRiskInfo("Redis", "★★★★★ HIGH",
+        "認証なし公開は非常に危険です。")},
+
+    {9200, new PortRiskInfo("Elasticsearch", "★★★★★ HIGH",
+        "認証なし公開による情報漏えい事例があります。")}
 };
         private Dictionary<int, string> serviceNames = new Dictionary<int, string>()
 {
@@ -101,6 +150,12 @@ namespace MineTool
         }
         private void AddLog(string message)
         {
+            if (textBox1.InvokeRequired)
+            {
+                textBox1.Invoke(new Action(() => AddLog(message)));
+                return;
+            }
+
             string time = DateTime.Now.ToString("HH:mm:ss");
             textBox1.AppendText($"[{time}] {message}\r\n");
         }
@@ -976,6 +1031,12 @@ namespace MineTool
 
             AddLog($"Port Scanner開始: {host} {startPort}～{endPort}");
 
+            int maxParallel = 100;
+            int timeout = 300;
+
+            SemaphoreSlim semaphore = new SemaphoreSlim(maxParallel);
+            List<Task> tasks = new List<Task>();
+
             for (int port = startPort; port <= endPort; port++)
             {
                 if (stopPortScanner)
@@ -984,8 +1045,29 @@ namespace MineTool
                     break;
                 }
 
-                await ScanPort(host, port, 300);
+                int currentPort = port;
+
+                Task task = Task.Run(async () =>
+                {
+                    await semaphore.WaitAsync();
+
+                    try
+                    {
+                        if (!stopPortScanner)
+                        {
+                            await ScanPort(host, currentPort, timeout);
+                        }
+                    }
+                    finally
+                    {
+                        semaphore.Release();
+                    }
+                });
+
+                tasks.Add(task);
             }
+
+            await Task.WhenAll(tasks);
 
             AddLog("Port Scanner完了");
         }
@@ -1012,12 +1094,19 @@ namespace MineTool
                             ? serviceNames[port]
                             : "Unknown";
 
-                        AddLog($"OPEN : {port} ({service})");
+                        StringBuilder sb = new StringBuilder();
 
-                        if (riskyPorts.ContainsKey(port))
+                        sb.AppendLine($"OPEN : {port} ({service})");
+
+                        if (riskyPorts.TryGetValue(port, out PortRiskInfo risk))
                         {
-                            AddLog($"  注意: {riskyPorts[port]}");
+                            sb.AppendLine("--------------------------------");
+                            sb.AppendLine($"危険度 : {risk.Severity}");
+                            sb.AppendLine(risk.Message);
+                            sb.AppendLine("--------------------------------");
                         }
+
+                        AddLog(sb.ToString().TrimEnd());
                     }
                 }
             }

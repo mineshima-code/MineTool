@@ -92,6 +92,16 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.panelPortScanner = new System.Windows.Forms.Panel();
+            this.btnPortScannerStop = new System.Windows.Forms.Button();
+            this.btnPortScannerRun = new System.Windows.Forms.Button();
+            this.txtPortScannerEndPort = new System.Windows.Forms.TextBox();
+            this.txtPortScannerStartPort = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtPortScannerHost = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.panelRemoteDesktop = new System.Windows.Forms.Panel();
             this.btnRemoteDesktopRun = new System.Windows.Forms.Button();
             this.txtRemoteDesktopHost = new System.Windows.Forms.TextBox();
@@ -164,16 +174,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.panelPortScanner = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txtPortScannerHost = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtPortScannerStartPort = new System.Windows.Forms.TextBox();
-            this.txtPortScannerEndPort = new System.Windows.Forms.TextBox();
-            this.btnPortScannerRun = new System.Windows.Forms.Button();
-            this.btnPortScannerStop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -182,6 +182,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelPortScanner.SuspendLayout();
             this.panelRemoteDesktop.SuspendLayout();
             this.panelLocalUsers.SuspendLayout();
             this.panelDiskManagement.SuspendLayout();
@@ -197,7 +198,6 @@
             this.panelPing.SuspendLayout();
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
-            this.panelPortScanner.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -533,6 +533,100 @@
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // panelPortScanner
+            // 
+            this.panelPortScanner.Controls.Add(this.btnPortScannerStop);
+            this.panelPortScanner.Controls.Add(this.btnPortScannerRun);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerEndPort);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerStartPort);
+            this.panelPortScanner.Controls.Add(this.label29);
+            this.panelPortScanner.Controls.Add(this.label28);
+            this.panelPortScanner.Controls.Add(this.txtPortScannerHost);
+            this.panelPortScanner.Controls.Add(this.label27);
+            this.panelPortScanner.Controls.Add(this.label26);
+            this.panelPortScanner.Location = new System.Drawing.Point(10, 79);
+            this.panelPortScanner.Name = "panelPortScanner";
+            this.panelPortScanner.Size = new System.Drawing.Size(935, 184);
+            this.panelPortScanner.TabIndex = 16;
+            // 
+            // btnPortScannerStop
+            // 
+            this.btnPortScannerStop.Location = new System.Drawing.Point(175, 148);
+            this.btnPortScannerStop.Name = "btnPortScannerStop";
+            this.btnPortScannerStop.Size = new System.Drawing.Size(150, 30);
+            this.btnPortScannerStop.TabIndex = 8;
+            this.btnPortScannerStop.Text = "停止";
+            this.btnPortScannerStop.UseVisualStyleBackColor = true;
+            // 
+            // btnPortScannerRun
+            // 
+            this.btnPortScannerRun.Location = new System.Drawing.Point(19, 148);
+            this.btnPortScannerRun.Name = "btnPortScannerRun";
+            this.btnPortScannerRun.Size = new System.Drawing.Size(150, 30);
+            this.btnPortScannerRun.TabIndex = 7;
+            this.btnPortScannerRun.Text = "スキャン開始";
+            this.btnPortScannerRun.UseVisualStyleBackColor = true;
+            // 
+            // txtPortScannerEndPort
+            // 
+            this.txtPortScannerEndPort.Location = new System.Drawing.Point(205, 109);
+            this.txtPortScannerEndPort.Name = "txtPortScannerEndPort";
+            this.txtPortScannerEndPort.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerEndPort.TabIndex = 6;
+            this.txtPortScannerEndPort.Text = "1024";
+            // 
+            // txtPortScannerStartPort
+            // 
+            this.txtPortScannerStartPort.Location = new System.Drawing.Point(19, 109);
+            this.txtPortScannerStartPort.Name = "txtPortScannerStartPort";
+            this.txtPortScannerStartPort.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerStartPort.TabIndex = 5;
+            this.txtPortScannerStartPort.Text = "1";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 88);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(87, 18);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "開始ポート";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(202, 87);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(87, 18);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "終了ポート";
+            // 
+            // txtPortScannerHost
+            // 
+            this.txtPortScannerHost.Location = new System.Drawing.Point(16, 57);
+            this.txtPortScannerHost.Name = "txtPortScannerHost";
+            this.txtPortScannerHost.Size = new System.Drawing.Size(180, 25);
+            this.txtPortScannerHost.TabIndex = 2;
+            this.txtPortScannerHost.Text = "192.168.1.1";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 36);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(67, 18);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Host/IP";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(107, 18);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Port Scanner";
             // 
             // panelRemoteDesktop
             // 
@@ -1223,100 +1317,6 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ここに画面タイトル";
             // 
-            // panelPortScanner
-            // 
-            this.panelPortScanner.Controls.Add(this.btnPortScannerStop);
-            this.panelPortScanner.Controls.Add(this.btnPortScannerRun);
-            this.panelPortScanner.Controls.Add(this.txtPortScannerEndPort);
-            this.panelPortScanner.Controls.Add(this.txtPortScannerStartPort);
-            this.panelPortScanner.Controls.Add(this.label29);
-            this.panelPortScanner.Controls.Add(this.label28);
-            this.panelPortScanner.Controls.Add(this.txtPortScannerHost);
-            this.panelPortScanner.Controls.Add(this.label27);
-            this.panelPortScanner.Controls.Add(this.label26);
-            this.panelPortScanner.Location = new System.Drawing.Point(10, 79);
-            this.panelPortScanner.Name = "panelPortScanner";
-            this.panelPortScanner.Size = new System.Drawing.Size(935, 184);
-            this.panelPortScanner.TabIndex = 16;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(9, 10);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(107, 18);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Port Scanner";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(16, 36);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(67, 18);
-            this.label27.TabIndex = 1;
-            this.label27.Text = "Host/IP";
-            // 
-            // txtPortScannerHost
-            // 
-            this.txtPortScannerHost.Location = new System.Drawing.Point(16, 57);
-            this.txtPortScannerHost.Name = "txtPortScannerHost";
-            this.txtPortScannerHost.Size = new System.Drawing.Size(180, 25);
-            this.txtPortScannerHost.TabIndex = 2;
-            this.txtPortScannerHost.Text = "192.168.1.1";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(202, 87);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(87, 18);
-            this.label28.TabIndex = 3;
-            this.label28.Text = "終了ポート";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(16, 88);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(87, 18);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "開始ポート";
-            // 
-            // txtPortScannerStartPort
-            // 
-            this.txtPortScannerStartPort.Location = new System.Drawing.Point(19, 109);
-            this.txtPortScannerStartPort.Name = "txtPortScannerStartPort";
-            this.txtPortScannerStartPort.Size = new System.Drawing.Size(180, 25);
-            this.txtPortScannerStartPort.TabIndex = 5;
-            this.txtPortScannerStartPort.Text = "1";
-            // 
-            // txtPortScannerEndPort
-            // 
-            this.txtPortScannerEndPort.Location = new System.Drawing.Point(205, 109);
-            this.txtPortScannerEndPort.Name = "txtPortScannerEndPort";
-            this.txtPortScannerEndPort.Size = new System.Drawing.Size(180, 25);
-            this.txtPortScannerEndPort.TabIndex = 6;
-            this.txtPortScannerEndPort.Text = "1024";
-            // 
-            // btnPortScannerRun
-            // 
-            this.btnPortScannerRun.Location = new System.Drawing.Point(19, 148);
-            this.btnPortScannerRun.Name = "btnPortScannerRun";
-            this.btnPortScannerRun.Size = new System.Drawing.Size(150, 30);
-            this.btnPortScannerRun.TabIndex = 7;
-            this.btnPortScannerRun.Text = "スキャン開始";
-            this.btnPortScannerRun.UseVisualStyleBackColor = true;
-            // 
-            // btnPortScannerStop
-            // 
-            this.btnPortScannerStop.Location = new System.Drawing.Point(175, 148);
-            this.btnPortScannerStop.Name = "btnPortScannerStop";
-            this.btnPortScannerStop.Size = new System.Drawing.Size(150, 30);
-            this.btnPortScannerStop.TabIndex = 8;
-            this.btnPortScannerStop.Text = "停止";
-            this.btnPortScannerStop.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1327,7 +1327,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "MineTool v1.1";
+            this.Text = "MineTool v1.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1340,6 +1340,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelPortScanner.ResumeLayout(false);
+            this.panelPortScanner.PerformLayout();
             this.panelRemoteDesktop.ResumeLayout(false);
             this.panelRemoteDesktop.PerformLayout();
             this.panelLocalUsers.ResumeLayout(false);
@@ -1369,8 +1371,6 @@
             this.panelPingSweep.PerformLayout();
             this.panelNslookup.ResumeLayout(false);
             this.panelNslookup.PerformLayout();
-            this.panelPortScanner.ResumeLayout(false);
-            this.panelPortScanner.PerformLayout();
             this.ResumeLayout(false);
 
         }
