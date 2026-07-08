@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace MineTool
 {
@@ -317,6 +318,8 @@ namespace MineTool
             btnFileFinderRun.Click += btnFileFinderRun_Click;
             btnFileFinderStop.Click -= btnFileFinderStop_Click;
             btnFileFinderStop.Click += btnFileFinderStop_Click;
+            lstFileFinderResults.DoubleClick -= lstFileFinderResults_DoubleClick;
+            lstFileFinderResults.DoubleClick += lstFileFinderResults_DoubleClick;
             UpdatePasswordLength();
             ShowPanel(panelHome, "MineTool");
 
@@ -1271,10 +1274,14 @@ namespace MineTool
             }
         }
 
+        private int fileFinderCount = 0;
+        private Stopwatch fileFinderStopwatch;
+
         private async void btnFileFinderRun_Click(object sender, EventArgs e)
         {
             string rootPath = txtFileFinderPath.Text.Trim();
             string keyword = txtFileFinderKeyword.Text.Trim();
+            string pattern = txtFileFinderPattern.Text.Trim();
 
             if (rootPath == "")
             {
@@ -1288,24 +1295,48 @@ namespace MineTool
                 return;
             }
 
-            if (!System.IO.Directory.Exists(rootPath))
+            if (pattern == "")
+            {
+                pattern = "*.*";
+            }
+
+            if (chkFileFinderEverything.Checked)
+            {
+                MessageBox.Show("Everythingモードは今後対応予定です。", "MineTool",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                chkFileFinderEverything.Checked = false;
+                return;
+            }
+
+            if (!Directory.Exists(rootPath))
             {
                 AddLog("検索フォルダが存在しません。");
                 return;
             }
 
             textBox1.Clear();
+            lstFileFinderResults.Items.Clear();
+            fileFinderCount = 0;
             stopFileFinder = false;
+            fileFinderStopwatch = Stopwatch.StartNew();
+
+            lblFileFinderStatus.Text = "検索中...";
 
             AddLog($"File Finder開始: {rootPath}");
             AddLog($"検索文字列: {keyword}");
+            AddLog($"ファイル種類: {pattern}");
 
             await Task.Run(() =>
             {
-                SearchFiles(rootPath, keyword);
+                SearchFiles(rootPath, keyword, pattern);
             });
 
-            AddLog("File Finder完了");
+            fileFinderStopwatch.Stop();
+
+            lblFileFinderStatus.Text =
+                $"結果: {fileFinderCount}件 / {fileFinderStopwatch.Elapsed.TotalSeconds:F2}秒";
+
+            AddLog($"File Finder完了: {fileFinderCount}件 / {fileFinderStopwatch.Elapsed.TotalSeconds:F2}秒");
         }
 
         private void btnFileFinderStop_Click(object sender, EventArgs e)
@@ -1314,34 +1345,63 @@ namespace MineTool
             AddLog("File Finder停止要求");
         }
 
-        private void SearchFiles(string folderPath, string keyword)
+        private void SearchFiles(string folderPath, string keyword, string pattern)
         {
             if (stopFileFinder) return;
 
             try
             {
-                foreach (string file in System.IO.Directory.EnumerateFiles(folderPath))
+                foreach (string file in Directory.EnumerateFiles(folderPath, pattern))
                 {
                     if (stopFileFinder) return;
 
-                    string fileName = System.IO.Path.GetFileName(file);
+                    string fileName = Path.GetFileName(file);
 
                     if (fileName.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
                     {
-                        AddLog(file);
+                        fileFinderCount++;
+
+                        Invoke(new Action(() =>
+                        {
+                            lstFileFinderResults.Items.Add(file);
+                        }));
                     }
                 }
 
-                foreach (string dir in System.IO.Directory.EnumerateDirectories(folderPath))
+                foreach (string dir in Directory.EnumerateDirectories(folderPath))
                 {
                     if (stopFileFinder) return;
 
-                    SearchFiles(dir, keyword);
+                    SearchFiles(dir, keyword, pattern);
                 }
             }
             catch
             {
-                // アクセス拒否などは無視して続行
+                // アクセス拒否などは無視
+            }
+        }
+        private void lstFileFinderResults_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstFileFinderResults.SelectedItem == null)
+            {
+                return;
+            }
+
+            string path = lstFileFinderResults.SelectedItem.ToString();
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = path,
+                    UseShellExecute = true
+                });
+
+                AddLog("ファイルを開きました: " + path);
+            }
+            catch (Exception ex)
+            {
+                AddLog("ファイルを開けませんでした: " + ex.Message);
             }
         }
         private void UpdatePasswordLength()
