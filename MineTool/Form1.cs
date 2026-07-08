@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace MineTool
 {
@@ -302,6 +303,15 @@ namespace MineTool
             btnPortScannerRun.Click += btnPortScannerRun_Click;
             btnPortScannerStop.Click -= btnPortScannerStop_Click;
             btnPortScannerStop.Click += btnPortScannerStop_Click;
+            btnGenerateHash.Click -= btnGenerateHash_Click;
+            btnGenerateHash.Click += btnGenerateHash_Click;
+            btnCopyHash.Click -= btnCopyHash_Click;
+            btnCopyHash.Click += btnCopyHash_Click;
+            txtPassword.KeyDown -= txtPassword_KeyDown;
+            txtPassword.KeyDown += txtPassword_KeyDown;
+            txtPassword.TextChanged -= txtPassword_TextChanged;
+            txtPassword.TextChanged += txtPassword_TextChanged;
+            UpdatePasswordLength();
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -574,6 +584,9 @@ namespace MineTool
                 case "Port Scanner":
                     ShowPanel(panelPortScanner, "Port Scanner");
                     break;
+                case "Password Hash Utility":
+                    ShowPanel(panelPasswordHashUtility, "Password Hash Utility");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -601,6 +614,7 @@ namespace MineTool
             panelLocalUsers.Visible = false;
             panelRemoteDesktop.Visible = false;
             panelPortScanner.Visible = false;
+            panelPasswordHashUtility.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -1114,6 +1128,128 @@ namespace MineTool
             {
                 // CLOSED/応答なしは表示しない
             }
+        }
+
+        private void btnGenerateHash_Click(object sender, EventArgs e)
+        {
+            string password = txtPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                txtHash.Clear();
+                AddLog("Passwordを入力してください。");
+                MessageBox.Show("Passwordを入力してください。", "MineTool",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+                return;
+            }
+
+            string algorithm = "";
+
+            if (rdoMD5.Checked) algorithm = "MD5";
+            else if (rdoSHA1.Checked) algorithm = "SHA1";
+            else if (rdoSHA256.Checked) algorithm = "SHA256";
+            else if (rdoSHA384.Checked) algorithm = "SHA384";
+            else if (rdoSHA512.Checked) algorithm = "SHA512";
+            else
+            {
+                AddLog("Algorithmを選択してください。");
+                return;
+            }
+
+            string hash = GenerateHash(password, algorithm);
+
+            txtHash.Text = hash;
+            AddLog($"{algorithm} hash generated.");
+        }
+
+        private string GenerateHash(string input, string algorithm)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+            byte[] hashBytes;
+
+            switch (algorithm)
+            {
+                case "MD5":
+                    using (MD5 md5 = MD5.Create())
+                    {
+                        hashBytes = md5.ComputeHash(bytes);
+                    }
+                    break;
+
+                case "SHA1":
+                    using (SHA1 sha1 = SHA1.Create())
+                    {
+                        hashBytes = sha1.ComputeHash(bytes);
+                    }
+                    break;
+
+                case "SHA256":
+                    using (SHA256 sha256 = SHA256.Create())
+                    {
+                        hashBytes = sha256.ComputeHash(bytes);
+                    }
+                    break;
+
+                case "SHA384":
+                    using (SHA384 sha384 = SHA384.Create())
+                    {
+                        hashBytes = sha384.ComputeHash(bytes);
+                    }
+                    break;
+
+                case "SHA512":
+                    using (SHA512 sha512 = SHA512.Create())
+                    {
+                        hashBytes = sha512.ComputeHash(bytes);
+                    }
+                    break;
+
+                default:
+                    throw new ArgumentException("未対応のアルゴリズムです。");
+                    
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (byte b in hashBytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+
+            return sb.ToString();
+        }
+
+        private void btnCopyHash_Click(object sender, EventArgs e)
+        {
+            if (txtHash.Text == "")
+            {
+                AddLog("コピーするHashがありません。");
+                return;
+            }
+
+            Clipboard.SetText(txtHash.Text);
+            AddLog("Hashをクリップボードにコピーしました。");
+            MessageBox.Show("Hashをクリップボードにコピーしました。", "MineTool",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnGenerateHash_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePasswordLength();
+        }
+
+        private void UpdatePasswordLength()
+        {
+            lblPassword.Text = $"Password ({txtPassword.Text.Length} chars)";
         }
     }
 }

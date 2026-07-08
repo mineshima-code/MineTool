@@ -62,9 +62,11 @@
             System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Server");
             System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Port Scanner");
             System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Password Hash Utility");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Mine Tool", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("File Finder");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Mine Tool", new System.Windows.Forms.TreeNode[] {
             treeNode19,
-            treeNode20});
+            treeNode20,
+            treeNode21});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -92,6 +94,19 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.panelPasswordHashUtility = new System.Windows.Forms.Panel();
+            this.btnCopyHash = new System.Windows.Forms.Button();
+            this.txtHash = new System.Windows.Forms.TextBox();
+            this.lblHash = new System.Windows.Forms.Label();
+            this.btnGenerateHash = new System.Windows.Forms.Button();
+            this.grpAlgorithm = new System.Windows.Forms.GroupBox();
+            this.rdoMD5 = new System.Windows.Forms.RadioButton();
+            this.rdoSHA1 = new System.Windows.Forms.RadioButton();
+            this.rdoSHA256 = new System.Windows.Forms.RadioButton();
+            this.rdoSHA384 = new System.Windows.Forms.RadioButton();
+            this.rdoSHA512 = new System.Windows.Forms.RadioButton();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.panelPortScanner = new System.Windows.Forms.Panel();
             this.btnPortScannerStop = new System.Windows.Forms.Button();
             this.btnPortScannerRun = new System.Windows.Forms.Button();
@@ -182,6 +197,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panelPasswordHashUtility.SuspendLayout();
+            this.grpAlgorithm.SuspendLayout();
             this.panelPortScanner.SuspendLayout();
             this.panelRemoteDesktop.SuspendLayout();
             this.panelLocalUsers.SuspendLayout();
@@ -459,6 +476,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelPasswordHashUtility);
             this.splitContainer1.Panel2.Controls.Add(this.panelPortScanner);
             this.splitContainer1.Panel2.Controls.Add(this.panelRemoteDesktop);
             this.splitContainer1.Panel2.Controls.Add(this.panelLocalUsers);
@@ -522,17 +540,153 @@
             treeNode19.Text = "Port Scanner";
             treeNode20.Name = "PasswordHashUtility";
             treeNode20.Text = "Password Hash Utility";
-            treeNode21.Name = "MineTool";
-            treeNode21.Text = "Mine Tool";
+            treeNode21.Name = "FileFinder";
+            treeNode21.Text = "File Finder";
+            treeNode22.Name = "MineTool";
+            treeNode22.Text = "Mine Tool";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode8,
             treeNode15,
             treeNode17,
             treeNode18,
-            treeNode21});
+            treeNode22});
             this.treeView1.Size = new System.Drawing.Size(210, 475);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // panelPasswordHashUtility
+            // 
+            this.panelPasswordHashUtility.Controls.Add(this.btnCopyHash);
+            this.panelPasswordHashUtility.Controls.Add(this.txtHash);
+            this.panelPasswordHashUtility.Controls.Add(this.lblHash);
+            this.panelPasswordHashUtility.Controls.Add(this.btnGenerateHash);
+            this.panelPasswordHashUtility.Controls.Add(this.grpAlgorithm);
+            this.panelPasswordHashUtility.Controls.Add(this.txtPassword);
+            this.panelPasswordHashUtility.Controls.Add(this.lblPassword);
+            this.panelPasswordHashUtility.Location = new System.Drawing.Point(10, 81);
+            this.panelPasswordHashUtility.Name = "panelPasswordHashUtility";
+            this.panelPasswordHashUtility.Size = new System.Drawing.Size(935, 184);
+            this.panelPasswordHashUtility.TabIndex = 17;
+            // 
+            // btnCopyHash
+            // 
+            this.btnCopyHash.Location = new System.Drawing.Point(752, 39);
+            this.btnCopyHash.Name = "btnCopyHash";
+            this.btnCopyHash.Size = new System.Drawing.Size(143, 30);
+            this.btnCopyHash.TabIndex = 12;
+            this.btnCopyHash.Text = "コピー";
+            this.btnCopyHash.UseVisualStyleBackColor = true;
+            // 
+            // txtHash
+            // 
+            this.txtHash.Location = new System.Drawing.Point(96, 42);
+            this.txtHash.Name = "txtHash";
+            this.txtHash.Size = new System.Drawing.Size(650, 25);
+            this.txtHash.TabIndex = 11;
+            // 
+            // lblHash
+            // 
+            this.lblHash.AutoSize = true;
+            this.lblHash.Location = new System.Drawing.Point(13, 43);
+            this.lblHash.Name = "lblHash";
+            this.lblHash.Size = new System.Drawing.Size(46, 18);
+            this.lblHash.TabIndex = 10;
+            this.lblHash.Text = "Hash";
+            // 
+            // btnGenerateHash
+            // 
+            this.btnGenerateHash.Location = new System.Drawing.Point(752, 6);
+            this.btnGenerateHash.Name = "btnGenerateHash";
+            this.btnGenerateHash.Size = new System.Drawing.Size(143, 30);
+            this.btnGenerateHash.TabIndex = 9;
+            this.btnGenerateHash.Text = "ハッシュ値生成";
+            this.btnGenerateHash.UseVisualStyleBackColor = true;
+            this.btnGenerateHash.Click += new System.EventHandler(this.btnGenerateHash_Click);
+            // 
+            // grpAlgorithm
+            // 
+            this.grpAlgorithm.Controls.Add(this.rdoMD5);
+            this.grpAlgorithm.Controls.Add(this.rdoSHA1);
+            this.grpAlgorithm.Controls.Add(this.rdoSHA256);
+            this.grpAlgorithm.Controls.Add(this.rdoSHA384);
+            this.grpAlgorithm.Controls.Add(this.rdoSHA512);
+            this.grpAlgorithm.Location = new System.Drawing.Point(6, 78);
+            this.grpAlgorithm.Name = "grpAlgorithm";
+            this.grpAlgorithm.Size = new System.Drawing.Size(488, 100);
+            this.grpAlgorithm.TabIndex = 3;
+            this.grpAlgorithm.TabStop = false;
+            this.grpAlgorithm.Text = "Algorithm";
+            // 
+            // rdoMD5
+            // 
+            this.rdoMD5.AutoSize = true;
+            this.rdoMD5.Location = new System.Drawing.Point(9, 32);
+            this.rdoMD5.Name = "rdoMD5";
+            this.rdoMD5.Size = new System.Drawing.Size(67, 22);
+            this.rdoMD5.TabIndex = 4;
+            this.rdoMD5.TabStop = true;
+            this.rdoMD5.Text = "MD5";
+            this.rdoMD5.UseVisualStyleBackColor = true;
+            // 
+            // rdoSHA1
+            // 
+            this.rdoSHA1.AutoSize = true;
+            this.rdoSHA1.Location = new System.Drawing.Point(9, 63);
+            this.rdoSHA1.Name = "rdoSHA1";
+            this.rdoSHA1.Size = new System.Drawing.Size(76, 22);
+            this.rdoSHA1.TabIndex = 5;
+            this.rdoSHA1.TabStop = true;
+            this.rdoSHA1.Text = "SHA1";
+            this.rdoSHA1.UseVisualStyleBackColor = true;
+            // 
+            // rdoSHA256
+            // 
+            this.rdoSHA256.AutoSize = true;
+            this.rdoSHA256.Location = new System.Drawing.Point(99, 63);
+            this.rdoSHA256.Name = "rdoSHA256";
+            this.rdoSHA256.Size = new System.Drawing.Size(94, 22);
+            this.rdoSHA256.TabIndex = 6;
+            this.rdoSHA256.TabStop = true;
+            this.rdoSHA256.Text = "SHA256";
+            this.rdoSHA256.UseVisualStyleBackColor = true;
+            // 
+            // rdoSHA384
+            // 
+            this.rdoSHA384.AutoSize = true;
+            this.rdoSHA384.Location = new System.Drawing.Point(225, 63);
+            this.rdoSHA384.Name = "rdoSHA384";
+            this.rdoSHA384.Size = new System.Drawing.Size(94, 22);
+            this.rdoSHA384.TabIndex = 7;
+            this.rdoSHA384.TabStop = true;
+            this.rdoSHA384.Text = "SHA384";
+            this.rdoSHA384.UseVisualStyleBackColor = true;
+            // 
+            // rdoSHA512
+            // 
+            this.rdoSHA512.AutoSize = true;
+            this.rdoSHA512.Location = new System.Drawing.Point(347, 63);
+            this.rdoSHA512.Name = "rdoSHA512";
+            this.rdoSHA512.Size = new System.Drawing.Size(94, 22);
+            this.rdoSHA512.TabIndex = 8;
+            this.rdoSHA512.TabStop = true;
+            this.rdoSHA512.Text = "SHA512";
+            this.rdoSHA512.UseVisualStyleBackColor = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(96, 9);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(650, 25);
+            this.txtPassword.TabIndex = 2;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(10, 12);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(80, 18);
+            this.lblPassword.TabIndex = 1;
+            this.lblPassword.Text = "Password";
             // 
             // panelPortScanner
             // 
@@ -1327,7 +1481,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "MineTool v1.2";
+            this.Text = "MineTool v1.4";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1340,6 +1494,10 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panelPasswordHashUtility.ResumeLayout(false);
+            this.panelPasswordHashUtility.PerformLayout();
+            this.grpAlgorithm.ResumeLayout(false);
+            this.grpAlgorithm.PerformLayout();
             this.panelPortScanner.ResumeLayout(false);
             this.panelPortScanner.PerformLayout();
             this.panelRemoteDesktop.ResumeLayout(false);
@@ -1485,6 +1643,19 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button btnPortScannerStop;
         private System.Windows.Forms.Button btnPortScannerRun;
+        private System.Windows.Forms.Panel panelPasswordHashUtility;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.RadioButton rdoSHA512;
+        private System.Windows.Forms.RadioButton rdoSHA384;
+        private System.Windows.Forms.RadioButton rdoSHA256;
+        private System.Windows.Forms.RadioButton rdoSHA1;
+        private System.Windows.Forms.RadioButton rdoMD5;
+        private System.Windows.Forms.GroupBox grpAlgorithm;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnGenerateHash;
+        private System.Windows.Forms.Button btnCopyHash;
+        private System.Windows.Forms.TextBox txtHash;
+        private System.Windows.Forms.Label lblHash;
     }
 }
 
