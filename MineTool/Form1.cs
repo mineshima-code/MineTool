@@ -311,6 +311,12 @@ namespace MineTool
             txtPassword.KeyDown += txtPassword_KeyDown;
             txtPassword.TextChanged -= txtPassword_TextChanged;
             txtPassword.TextChanged += txtPassword_TextChanged;
+            btnFileFinderBrowse.Click -= btnFileFinderBrowse_Click;
+            btnFileFinderBrowse.Click += btnFileFinderBrowse_Click;
+            btnFileFinderRun.Click -= btnFileFinderRun_Click;
+            btnFileFinderRun.Click += btnFileFinderRun_Click;
+            btnFileFinderStop.Click -= btnFileFinderStop_Click;
+            btnFileFinderStop.Click += btnFileFinderStop_Click;
             UpdatePasswordLength();
             ShowPanel(panelHome, "MineTool");
 
@@ -587,6 +593,9 @@ namespace MineTool
                 case "Password Hash Utility":
                     ShowPanel(panelPasswordHashUtility, "Password Hash Utility");
                     break;
+                case "File Finder":
+                    ShowPanel(panelFileFinder, "File Finder");
+                    break;
             }
 
             AddLog("選択：" + e.Node.Text);
@@ -615,6 +624,7 @@ namespace MineTool
             panelRemoteDesktop.Visible = false;
             panelPortScanner.Visible = false;
             panelPasswordHashUtility.Visible = false;
+            panelFileFinder.Visible = false;
 
         }
         private void ShowPanel(Panel panel, string title)
@@ -1246,7 +1256,94 @@ namespace MineTool
         {
             UpdatePasswordLength();
         }
+        private bool stopFileFinder = false;
 
+        private void btnFileFinderBrowse_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "検索するフォルダを選択してください。";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtFileFinderPath.Text = dialog.SelectedPath;
+                }
+            }
+        }
+
+        private async void btnFileFinderRun_Click(object sender, EventArgs e)
+        {
+            string rootPath = txtFileFinderPath.Text.Trim();
+            string keyword = txtFileFinderKeyword.Text.Trim();
+
+            if (rootPath == "")
+            {
+                AddLog("検索フォルダを入力してください。");
+                return;
+            }
+
+            if (keyword == "")
+            {
+                AddLog("検索文字列を入力してください。");
+                return;
+            }
+
+            if (!System.IO.Directory.Exists(rootPath))
+            {
+                AddLog("検索フォルダが存在しません。");
+                return;
+            }
+
+            textBox1.Clear();
+            stopFileFinder = false;
+
+            AddLog($"File Finder開始: {rootPath}");
+            AddLog($"検索文字列: {keyword}");
+
+            await Task.Run(() =>
+            {
+                SearchFiles(rootPath, keyword);
+            });
+
+            AddLog("File Finder完了");
+        }
+
+        private void btnFileFinderStop_Click(object sender, EventArgs e)
+        {
+            stopFileFinder = true;
+            AddLog("File Finder停止要求");
+        }
+
+        private void SearchFiles(string folderPath, string keyword)
+        {
+            if (stopFileFinder) return;
+
+            try
+            {
+                foreach (string file in System.IO.Directory.EnumerateFiles(folderPath))
+                {
+                    if (stopFileFinder) return;
+
+                    string fileName = System.IO.Path.GetFileName(file);
+
+                    if (fileName.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        AddLog(file);
+                    }
+                }
+
+                foreach (string dir in System.IO.Directory.EnumerateDirectories(folderPath))
+                {
+                    if (stopFileFinder) return;
+
+                    SearchFiles(dir, keyword);
+                }
+            }
+            catch
+            {
+                // アクセス拒否などは無視して続行
+            }
+        }
         private void UpdatePasswordLength()
         {
             lblPassword.Text = $"Password ({txtPassword.Text.Length} chars)";

@@ -189,6 +189,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.panelFileFinder = new System.Windows.Forms.Panel();
+            this.lblFileFinderPath = new System.Windows.Forms.Label();
+            this.txtFileFinderPath = new System.Windows.Forms.TextBox();
+            this.lblFileFinderKeyword = new System.Windows.Forms.Label();
+            this.btnFileFinderBrowse = new System.Windows.Forms.Button();
+            this.btnFileFinderRun = new System.Windows.Forms.Button();
+            this.txtFileFinderKeyword = new System.Windows.Forms.TextBox();
+            this.btnFileFinderStop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -215,6 +223,7 @@
             this.panelPing.SuspendLayout();
             this.panelPingSweep.SuspendLayout();
             this.panelNslookup.SuspendLayout();
+            this.panelFileFinder.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -476,6 +485,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panelFileFinder);
             this.splitContainer1.Panel2.Controls.Add(this.panelPasswordHashUtility);
             this.splitContainer1.Panel2.Controls.Add(this.panelPortScanner);
             this.splitContainer1.Panel2.Controls.Add(this.panelRemoteDesktop);
@@ -1471,6 +1481,79 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ここに画面タイトル";
             // 
+            // panelFileFinder
+            // 
+            this.panelFileFinder.Controls.Add(this.btnFileFinderStop);
+            this.panelFileFinder.Controls.Add(this.btnFileFinderRun);
+            this.panelFileFinder.Controls.Add(this.txtFileFinderKeyword);
+            this.panelFileFinder.Controls.Add(this.btnFileFinderBrowse);
+            this.panelFileFinder.Controls.Add(this.lblFileFinderKeyword);
+            this.panelFileFinder.Controls.Add(this.txtFileFinderPath);
+            this.panelFileFinder.Controls.Add(this.lblFileFinderPath);
+            this.panelFileFinder.Location = new System.Drawing.Point(11, 82);
+            this.panelFileFinder.Name = "panelFileFinder";
+            this.panelFileFinder.Size = new System.Drawing.Size(935, 184);
+            this.panelFileFinder.TabIndex = 18;
+            // 
+            // lblFileFinderPath
+            // 
+            this.lblFileFinderPath.AutoSize = true;
+            this.lblFileFinderPath.Location = new System.Drawing.Point(11, 11);
+            this.lblFileFinderPath.Name = "lblFileFinderPath";
+            this.lblFileFinderPath.Size = new System.Drawing.Size(96, 18);
+            this.lblFileFinderPath.TabIndex = 0;
+            this.lblFileFinderPath.Text = "検索フォルダ";
+            // 
+            // txtFileFinderPath
+            // 
+            this.txtFileFinderPath.Location = new System.Drawing.Point(113, 8);
+            this.txtFileFinderPath.Name = "txtFileFinderPath";
+            this.txtFileFinderPath.Size = new System.Drawing.Size(600, 25);
+            this.txtFileFinderPath.TabIndex = 1;
+            // 
+            // lblFileFinderKeyword
+            // 
+            this.lblFileFinderKeyword.AutoSize = true;
+            this.lblFileFinderKeyword.Location = new System.Drawing.Point(9, 47);
+            this.lblFileFinderKeyword.Name = "lblFileFinderKeyword";
+            this.lblFileFinderKeyword.Size = new System.Drawing.Size(98, 18);
+            this.lblFileFinderKeyword.TabIndex = 2;
+            this.lblFileFinderKeyword.Text = "検索文字列";
+            // 
+            // btnFileFinderBrowse
+            // 
+            this.btnFileFinderBrowse.Location = new System.Drawing.Point(719, 5);
+            this.btnFileFinderBrowse.Name = "btnFileFinderBrowse";
+            this.btnFileFinderBrowse.Size = new System.Drawing.Size(143, 30);
+            this.btnFileFinderBrowse.TabIndex = 3;
+            this.btnFileFinderBrowse.Text = "参照";
+            this.btnFileFinderBrowse.UseVisualStyleBackColor = true;
+            // 
+            // btnFileFinderRun
+            // 
+            this.btnFileFinderRun.Location = new System.Drawing.Point(719, 41);
+            this.btnFileFinderRun.Name = "btnFileFinderRun";
+            this.btnFileFinderRun.Size = new System.Drawing.Size(70, 30);
+            this.btnFileFinderRun.TabIndex = 5;
+            this.btnFileFinderRun.Text = "検索";
+            this.btnFileFinderRun.UseVisualStyleBackColor = true;
+            // 
+            // txtFileFinderKeyword
+            // 
+            this.txtFileFinderKeyword.Location = new System.Drawing.Point(113, 44);
+            this.txtFileFinderKeyword.Name = "txtFileFinderKeyword";
+            this.txtFileFinderKeyword.Size = new System.Drawing.Size(600, 25);
+            this.txtFileFinderKeyword.TabIndex = 4;
+            // 
+            // btnFileFinderStop
+            // 
+            this.btnFileFinderStop.Location = new System.Drawing.Point(792, 41);
+            this.btnFileFinderStop.Name = "btnFileFinderStop";
+            this.btnFileFinderStop.Size = new System.Drawing.Size(70, 30);
+            this.btnFileFinderStop.TabIndex = 6;
+            this.btnFileFinderStop.Text = "停止";
+            this.btnFileFinderStop.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -1481,7 +1564,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "MineTool v1.4";
+            this.Text = "MineTool v1.5";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1529,6 +1612,8 @@
             this.panelPingSweep.PerformLayout();
             this.panelNslookup.ResumeLayout(false);
             this.panelNslookup.PerformLayout();
+            this.panelFileFinder.ResumeLayout(false);
+            this.panelFileFinder.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1656,6 +1741,14 @@
         private System.Windows.Forms.Button btnCopyHash;
         private System.Windows.Forms.TextBox txtHash;
         private System.Windows.Forms.Label lblHash;
+        private System.Windows.Forms.Panel panelFileFinder;
+        private System.Windows.Forms.TextBox txtFileFinderPath;
+        private System.Windows.Forms.Label lblFileFinderPath;
+        private System.Windows.Forms.Button btnFileFinderRun;
+        private System.Windows.Forms.TextBox txtFileFinderKeyword;
+        private System.Windows.Forms.Button btnFileFinderBrowse;
+        private System.Windows.Forms.Label lblFileFinderKeyword;
+        private System.Windows.Forms.Button btnFileFinderStop;
     }
 }
 
