@@ -87,6 +87,9 @@
   <ItemGroup>
     <Content Include="ChatGPT Image 2026年7月6日 12_55_40.ico" />
     <Content Include="ChatGPT Image 2026年7月6日 13_16_24.ico" />
+    <Content Include="Plugins\es.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

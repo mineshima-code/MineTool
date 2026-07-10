@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
+using Microsoft.Win32;
 
 namespace MineTool
 {
@@ -321,6 +322,7 @@ namespace MineTool
             lstFileFinderResults.DoubleClick -= lstFileFinderResults_DoubleClick;
             lstFileFinderResults.DoubleClick += lstFileFinderResults_DoubleClick;
             UpdatePasswordLength();
+            EnsureEverythingRunning();
             ShowPanel(panelHome, "MineTool");
 
         }
@@ -1302,9 +1304,7 @@ namespace MineTool
 
             if (chkFileFinderEverything.Checked)
             {
-                MessageBox.Show("Everythingモードは今後対応予定です。", "MineTool",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                chkFileFinderEverything.Checked = false;
+                await RunEverythingSearch(keyword, pattern, rootPath);
                 return;
             }
 
@@ -1404,9 +1404,349 @@ namespace MineTool
                 AddLog("ファイルを開けませんでした: " + ex.Message);
             }
         }
+        private async Task RunEverythingSearch(
+    string keyword,
+    string pattern,
+    string rootPath)
+        {
+            string esPath = Path.Combine(
+                Application.StartupPath,
+                "Plugins",
+                "es.exe");
+
+            if (!File.Exists(esPath))
+            {
+                MessageBox.Show(
+                    "Pluginsフォルダに es.exe が見つかりません。",
+                    "MineTool",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                AddLog("Everything検索失敗: es.exeが見つかりません。");
+                return;
+            }
+
+            lstFileFinderResults.Items.Clear();
+            fileFinderCount = 0;
+            stopFileFinder = false;
+            fileFinderStopwatch = Stopwatch.StartNew();
+
+            lblFileFinderStatus.Text = "Everything検索中...";
+
+            AddLog("Everythingモード開始");
+            AddLog($"検索文字列: {keyword}");
+            AddLog($"ファイル種類: {pattern}");
+
+            string query = BuildEverythingQuery(
+                keyword,
+                pattern,
+                rootPath);
+
+            // ESの検索結果を一時的に保存するUTF-8テキスト
+            string resultFilePath = Path.Combine(
+                Path.GetTempPath(),
+                "MineTool_Everything_" + Guid.NewGuid().ToString("N") + ".txt");
+
+            try
+            {
+                List<string> results = await Task.Run(() =>
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        FileName = esPath,
+
+                        // -export-txt の出力はUTF-8
+                        Arguments =
+                            $"-export-txt \"{resultFilePath}\" {query}",
+
+                        UseShellExecute = false,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                        StandardErrorEncoding = Encoding.UTF8
+                    };
+
+                    using (Process process = new Process())
+                    {
+                        process.StartInfo = startInfo;
+                        process.Start();
+
+                        while (!process.WaitForExit(50))
+                        {
+                            if (stopFileFinder)
+                            {
+                                try
+                                {
+                                    process.Kill();
+                                }
+                                catch
+                                {
+                                    // すでに終了済みなら無視
+                                }
+
+                                return new List<string>();
+                            }
+                        }
+
+                        string errorText = process.StandardError.ReadToEnd();
+
+                        if (process.ExitCode != 0)
+                        {
+                            throw new InvalidOperationException(
+                                string.IsNullOrWhiteSpace(errorText)
+                                    ? $"es.exeが終了コード {process.ExitCode} を返しました。"
+                                    : errorText);
+                        }
+                    }
+
+                    if (!File.Exists(resultFilePath))
+                    {
+                        return new List<string>();
+                    }
+
+                    // UTF-8として読み込み、日本語ファイル名を保持する
+                    return File.ReadAllLines(
+                            resultFilePath,
+                            Encoding.UTF8)
+                        .Where(line => !string.IsNullOrWhiteSpace(line))
+                        .ToList();
+                });
+
+                foreach (string path in results)
+                {
+                    lstFileFinderResults.Items.Add(path);
+                }
+
+                fileFinderCount = results.Count;
+            }
+            catch (Exception ex)
+            {
+                AddLog("Everything検索エラー: " + ex.Message);
+
+                MessageBox.Show(
+                    "Everything検索に失敗しました。\r\n\r\n" +
+                    ex.Message,
+                    "MineTool",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                fileFinderStopwatch.Stop();
+
+                // 一時ファイルを後始末
+                try
+                {
+                    if (File.Exists(resultFilePath))
+                    {
+                        File.Delete(resultFilePath);
+                    }
+                }
+                catch
+                {
+                    // 一時ファイル削除失敗は検索結果に影響しないため無視
+                }
+
+                lblFileFinderStatus.Text =
+                    $"結果: {fileFinderCount}件 / " +
+                    $"{fileFinderStopwatch.Elapsed.TotalSeconds:F2}秒";
+
+                if (stopFileFinder)
+                {
+                    AddLog(
+                        $"Everythingモード停止: " +
+                        $"{fileFinderCount}件");
+                }
+                else
+                {
+                    AddLog(
+                        $"Everythingモード完了: " +
+                        $"{fileFinderCount}件 / " +
+                        $"{fileFinderStopwatch.Elapsed.TotalSeconds:F2}秒");
+                }
+            }
+        }
+        private string BuildEverythingQuery(
+    string keyword,
+    string pattern,
+    string rootPath)
+        {
+            List<string> conditions = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                conditions.Add($"\"{keyword.Replace("\"", "\"\"")}\"");
+            }
+
+            if (!string.IsNullOrWhiteSpace(pattern) &&
+                pattern != "*.*" &&
+                pattern != "*")
+            {
+                conditions.Add(pattern);
+            }
+
+            if (!string.IsNullOrWhiteSpace(rootPath))
+            {
+                string normalizedPath =
+                    rootPath.TrimEnd('\\') + "\\";
+
+                conditions.Add(
+                    $"path:\"{normalizedPath.Replace("\"", "\"\"")}\"");
+            }
+
+            return string.Join(" ", conditions);
+        }
+        private void EnsureEverythingRunning()
+        {
+            try
+            {
+                // すでに起動している場合は何もしない
+                if (Process.GetProcessesByName("Everything").Length > 0)
+                {
+                    AddLog("Everythingは起動済みです。");
+                    return;
+                }
+
+                string everythingPath = FindEverythingExecutable();
+
+                // インストールされていない場合は静かに終了
+                if (string.IsNullOrWhiteSpace(everythingPath))
+                {
+                    return;
+                }
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = everythingPath,
+
+                    // バックグラウンド起動。
+                    // 既に別インスタンスがあれば起動しない。
+                    Arguments = "-startup -first-instance",
+
+                    UseShellExecute = true
+                });
+
+                AddLog("Everythingをバックグラウンドで起動しました。");
+            }
+            catch (Exception ex)
+            {
+                // MineTool本体の起動は妨げない
+                AddLog("Everythingの自動起動に失敗しました: " + ex.Message);
+            }
+        }
+        private string FindEverythingExecutable()
+        {
+            // Windowsの「App Paths」登録を最優先で確認
+            string[] registryPaths =
+            {
+        @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Everything.exe",
+        @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Everything.exe"
+    };
+
+            foreach (string registryPath in registryPaths)
+            {
+                object value = Registry.GetValue(registryPath, "", null);
+
+                if (value != null)
+                {
+                    string path = value.ToString();
+
+                    if (File.Exists(path))
+                    {
+                        return path;
+                    }
+                }
+            }
+
+            // レジストリから見つからない場合の候補
+            string programFiles =
+                Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+
+            string programFilesX86 =
+                Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+
+            string[] candidates =
+            {
+        Path.Combine(programFiles, "Everything", "Everything.exe"),
+        Path.Combine(programFiles, "Everything 1.5a", "Everything.exe"),
+        Path.Combine(programFilesX86, "Everything", "Everything.exe"),
+        Path.Combine(programFilesX86, "Everything 1.5a", "Everything.exe")
+    };
+
+            foreach (string candidate in candidates)
+            {
+                if (File.Exists(candidate))
+                {
+                    return candidate;
+                }
+            }
+
+            return null;
+        }
         private void UpdatePasswordLength()
         {
             lblPassword.Text = $"Password ({txtPassword.Text.Length} chars)";
+        }
+
+        private void tsmiOpen_Click(object sender, EventArgs e)
+        {
+            if (lstFileFinderResults.SelectedItem == null)
+                return;
+
+            string path = lstFileFinderResults.SelectedItem.ToString();
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = path,
+                    UseShellExecute = true
+                });
+
+                AddLog("ファイルを開きました: " + path);
+            }
+            catch (Exception ex)
+            {
+                AddLog("ファイルを開けませんでした: " + ex.Message);
+            }
+        }
+
+        private void tsmiOpenFolder_Click(object sender, EventArgs e)
+        {
+            if (lstFileFinderResults.SelectedItem == null)
+                return;
+
+            string path = lstFileFinderResults.SelectedItem.ToString();
+
+            Process.Start(
+                "explorer.exe",
+                "/select,\"" + path + "\"");
+
+            AddLog("フォルダを開きました: " + path);
+        }
+
+        private void tsmiCopyPath_Click(object sender, EventArgs e)
+        {
+            if (lstFileFinderResults.SelectedItem == null)
+                return;
+
+            string path = lstFileFinderResults.SelectedItem.ToString();
+
+            Clipboard.SetText(path);
+
+            AddLog("パスをコピーしました。");
+        }
+
+        private void lstFileFinderResults_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int index = lstFileFinderResults.IndexFromPoint(e.Location);
+
+                if (index != ListBox.NoMatches)
+                {
+                    lstFileFinderResults.SelectedIndex = index;
+                }
+            }
         }
     }
 }
